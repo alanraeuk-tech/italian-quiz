@@ -340,7 +340,7 @@
         <div class="out-of">out of 20</div>
         <div class="result-msg" id="resultMsg"></div>
         <div class="result-sub" id="resultSub"></div>
-        <button class="restart-btn" onclick="startQuiz()">Try again — Ancora!</button>
+        <button class="restart-btn" onclick="showStartScreen()">Try again — Ancora!</button>
     </div>
 
 </div>
@@ -1275,6 +1275,13 @@ function showResults() {
 
     document.getElementById('resultMsg').textContent = msg;
     document.getElementById('resultSub').textContent = sub;
+}
+
+// ── Back to start screen ─────────────────────────────────────
+function showStartScreen() {
+    document.getElementById('resultsScreen').style.display = 'none';
+    document.getElementById('progressFill').style.width    = '0%';
+    document.getElementById('startScreen').style.display   = 'block';
 }
 </script>
 </body>
