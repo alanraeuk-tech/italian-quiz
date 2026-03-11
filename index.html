@@ -236,6 +236,39 @@
         }
         .restart-btn:hover { background: #007a3a; }
 
+        /* ---- Sheet selector ---- */
+        .sheet-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        .sheet-selector label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border: 2px solid #e2e2e2;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #444;
+            transition: border-color 0.15s, background 0.15s;
+            user-select: none;
+        }
+        .sheet-selector input[type="checkbox"] { display: none; }
+        .sheet-selector label:has(input:checked) {
+            border-color: #009246;
+            background: #edf7f0;
+            color: #1b5e20;
+        }
+        .sheet-selector label:hover:not(:has(input:checked)) {
+            border-color: #aaa;
+            background: #f8f8f8;
+        }
+
         /* shared button style */
         .start-btn {
             padding: 14px 48px;
@@ -272,7 +305,12 @@
     <div class="start-screen" id="startScreen">
         <div class="emoji">🇮🇹</div>
         <h2>Benvenuto! Welcome to your Italian quiz.</h2>
-        <p>Test yourself on everything from your first two lessons.</p>
+        <p>Choose which lesson to practise, then start.</p>
+        <div class="sheet-selector">
+            <label><input type="checkbox" id="sheetAll" checked><span>All</span></label>
+            <label><input type="checkbox" class="sheet-cb" value="1.1" checked><span>1.1</span></label>
+            <label><input type="checkbox" class="sheet-cb" value="1.2" checked><span>1.2</span></label>
+        </div>
         <ul>
             <li>📋 20 random questions drawn from a pool of 100</li>
             <li>🔤 4 multiple-choice options per question</li>
@@ -318,36 +356,42 @@ const pool = [
         q: "Which greeting do you use when arriving in the morning (5 am – 1 pm)?",
         opts: ["Buona sera!", "Buona notte!", "Buongiorno!", "Arrivederci!"],
         ans: 2,
+        sheet: "1.1",
         exp: "'Buongiorno!' means 'Good morning / Good day' and is used during <em>mattina</em> (5 am–1 pm)."
     },
     {
         q: "Which greeting do you use when arriving in the evening (7 pm – 11 pm)?",
         opts: ["Ciao!", "Buongiorno!", "Buona sera!", "A presto!"],
         ans: 2,
+        sheet: "1.1",
         exp: "'Buona sera!' means 'Good evening'. <em>Sera</em> runs from 19:00–23:00 (7 pm–11 pm)."
     },
     {
         q: "What does 'Arrivederci!' mean?",
         opts: ["Good morning", "Good evening", "See you soon", "Goodbye / See you again"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Arrivederci!' is a formal goodbye. Literally 'Until we meet again'. Used when leaving."
     },
     {
         q: "What does 'A presto!' mean?",
         opts: ["Good night", "Hello", "How are you?", "See you soon!"],
         ans: 3,
+        sheet: "1.1",
         exp: "'A presto!' means 'See you soon!' It is used when leaving."
     },
     {
         q: "'Ciao!' can be used...",
         opts: ["Only when arriving", "Only when leaving", "Only late at night", "Both when arriving and leaving"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Ciao!' is informal and works both as hello and goodbye."
     },
     {
         q: "What time range is 'pomeriggio' (afternoon)?",
         opts: ["5 am – 1 pm", "1 pm – 7 pm", "7 pm – 11 pm", "11 pm – 5 am"],
         ans: 1,
+        sheet: "1.1",
         exp: "<em>Pomeriggio</em> (afternoon) runs from 13:00–19:00. Use 'Ciao! / Salve!' during this time."
     },
 
@@ -356,18 +400,21 @@ const pool = [
         q: "How do you ask 'What's your name?' informally (to a friend)?",
         opts: ["Come si chiama?", "Come sta?", "Di dove sei?", "Come ti chiami?"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Come ti chiami?' is the informal 'What's your name?' Use <em>ti</em> with friends and people your own age."
     },
     {
         q: "How do you ask 'What's your name?' formally (to a stranger or elder)?",
         opts: ["Come ti chiami?", "Come stai?", "Come si chiama?", "Qual è il nome?"],
         ans: 2,
+        sheet: "1.1",
         exp: "'Come si chiama?' is the formal version. Use <em>si</em> with strangers, elders or in professional settings."
     },
     {
         q: "How do you say 'My name is...' in Italian?",
         opts: ["Sono...", "Ho...", "Abito a...", "Mi chiamo..."],
         ans: 3,
+        sheet: "1.1",
         exp: "'Mi chiamo...' literally means 'I call myself...' — the standard way to give your name."
     },
 
@@ -376,30 +423,35 @@ const pool = [
         q: "What does 'Di dove sei?' mean?",
         opts: ["What is your name?", "Where do you live?", "How old are you?", "Where are you from?"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Di dove sei?' (informal) means 'Where are you from?' Answer with 'Sono...' + nationality."
     },
     {
         q: "How do you say 'I am Scottish' in Italian?",
         opts: ["Sono inglese", "Sono tedesco", "Sono francese", "Sono scozzese"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Scozzese' = Scottish. It has the same form for masculine and feminine — no ending change needed."
     },
     {
         q: "What does 'Sono italiana' mean?",
         opts: ["I am English", "I am French", "I am Italian (female)", "I am German"],
         ans: 2,
+        sheet: "1.1",
         exp: "'Italiano' = Italian (male), 'italiana' = Italian (female). The -o/-a ending changes with gender."
     },
     {
         q: "What is the Italian word for 'French' (nationality)?",
         opts: ["gallese", "inglese", "tedesco", "francese"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Francese' = French. Like 'scozzese' and 'inglese', it has one form for both masculine and feminine."
     },
     {
         q: "What does 'britannico/a' mean?",
         opts: ["Scottish", "French", "British", "German"],
         ans: 2,
+        sheet: "1.1",
         exp: "'Britannico/a' = British. Use 'britannico' for male, 'britannica' for female."
     },
 
@@ -408,24 +460,28 @@ const pool = [
         q: "What is the correct form of 'essere' (to be) for 'noi' (we)?",
         opts: ["sono", "siete", "sei", "siamo"],
         ans: 3,
+        sheet: "1.1",
         exp: "Noi → <strong>siamo</strong>. Full conjugation: io sono · tu sei · lui/lei è · noi siamo · voi siete · loro sono."
     },
     {
         q: "What is the correct form of 'essere' (to be) for 'voi' (you all)?",
         opts: ["sono", "siamo", "sei", "siete"],
         ans: 3,
+        sheet: "1.1",
         exp: "Voi → <strong>siete</strong>. Remember: noi siamo, voi siete, loro sono."
     },
     {
         q: "Complete: 'Lui ___ italiano.' (He is Italian.)",
         opts: ["sei", "sono", "siamo", "è"],
         ans: 3,
+        sheet: "1.1",
         exp: "Lui → <strong>è</strong>. The same form is used for lei (she) and Lei (formal you)."
     },
     {
         q: "Complete: 'Loro ___ scozzesi.' (They are Scottish.)",
         opts: ["siete", "siamo", "sei", "sono"],
         ans: 3,
+        sheet: "1.1",
         exp: "Loro → <strong>sono</strong>. 'Loro sono' = they are. Same spelling as 'io sono' but different subject."
     },
 
@@ -434,24 +490,28 @@ const pool = [
         q: "What is the Italian word for 15?",
         opts: ["quattordici", "tredici", "sedici", "quindici"],
         ans: 3,
+        sheet: "1.1",
         exp: "15 = <strong>quindici</strong>. Nearby: tredici=13, quattordici=14, quindici=15, sedici=16."
     },
     {
         q: "What number is 'diciassette'?",
         opts: ["16", "18", "19", "17"],
         ans: 3,
+        sheet: "1.1",
         exp: "Diciassette = <strong>17</strong>. Pattern: sedici=16, diciassette=17, diciotto=18, dicianove=19."
     },
     {
         q: "What number is 'dodici'?",
         opts: ["10", "11", "13", "12"],
         ans: 3,
+        sheet: "1.1",
         exp: "Dodici = <strong>12</strong>. Remember: undici=11, dodici=12, tredici=13."
     },
     {
         q: "What is the Italian word for 20?",
         opts: ["dieci", "ventuno", "dodici", "venti"],
         ans: 3,
+        sheet: "1.1",
         exp: "20 = <strong>venti</strong>. 21 = ventuno (the 'i' of venti drops before uno)."
     },
 
@@ -460,18 +520,21 @@ const pool = [
         q: "What does 'Inghilterra' mean?",
         opts: ["Scotland", "Wales", "Ireland", "England"],
         ans: 3,
+        sheet: "1.1",
         exp: "Inghilterra = <strong>England</strong>. Also: Scozia=Scotland, Galles=Wales, Irlanda del Nord=Northern Ireland."
     },
     {
         q: "What does 'Stati Uniti' mean?",
         opts: ["United Kingdom", "Great Britain", "North America", "United States"],
         ans: 3,
+        sheet: "1.1",
         exp: "Stati Uniti = <strong>United States</strong>. Regno Unito = United Kingdom, Gran Bretagna = Great Britain."
     },
     {
         q: "What is 'Galles' in English?",
         opts: ["Scotland", "Ireland", "England", "Wales"],
         ans: 3,
+        sheet: "1.1",
         exp: "Galles = <strong>Wales</strong>. The Welsh language is called 'gallese' in Italian."
     },
 
@@ -480,18 +543,21 @@ const pool = [
         q: "The English ending '-tion' becomes what in Italian?",
         opts: ["-tale", "-ale", "-ibile", "-zione"],
         ans: 3,
+        sheet: "1.1",
         exp: "English '-tion' → Italian '-zione'. Examples: Attention → Attenzione, Nation → Nazione."
     },
     {
         q: "The English ending '-ible' becomes what in Italian?",
         opts: ["-ale", "-zione", "-oso", "-ibile"],
         ans: 3,
+        sheet: "1.1",
         exp: "English '-ible' → Italian '-ibile'. Examples: Possible → Possibile, Terrible → Terribile."
     },
     {
         q: "The English ending '-al' becomes what in Italian?",
         opts: ["-zione", "-ibile", "-oso", "-ale"],
         ans: 3,
+        sheet: "1.1",
         exp: "English '-al' → Italian '-ale'. Examples: Animal → Animale, Original → Originale."
     },
 
@@ -500,30 +566,35 @@ const pool = [
         q: "What does 'Come sta?' mean?",
         opts: ["What's your name?", "Where do you live?", "How old are you?", "How are you? (formal)"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Come sta?' is the formal 'How are you?' from the verb <em>stare</em> (to be / to feel)."
     },
     {
         q: "What does 'Sto molto bene' mean?",
         opts: ["I'm tired", "I'm not bad", "I'm so so", "I'm very well"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Molto bene' = very well. 'Sto' comes from <em>stare</em>, used for states of health."
     },
     {
         q: "What does 'Così così' mean?",
         opts: ["Very well", "Not bad", "I'm tired", "So so"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Così così' literally means 'like this, like that' — the Italian equivalent of 'so so'."
     },
     {
         q: "What does 'Sono stanco/a' mean?",
         opts: ["I am well", "I am hungry", "I am Italian", "I am tired"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Stanco/a' = tired. Use 'stanco' if you are male, 'stanca' if you are female."
     },
     {
         q: "What does 'non c'è male' mean?",
         opts: ["Very well", "Terrible", "I'm tired", "Not bad"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Non c'è male' literally means 'there's no bad' — a casual way of saying 'not bad'."
     },
 
@@ -532,18 +603,21 @@ const pool = [
         q: "What number is 'quaranta'?",
         opts: ["30", "50", "14", "40"],
         ans: 3,
+        sheet: "1.2",
         exp: "Quaranta = <strong>40</strong>. Tens: trenta=30, quaranta=40, cinquanta=50, sessanta=60."
     },
     {
         q: "What number is 'settanta'?",
         opts: ["60", "80", "17", "70"],
         ans: 3,
+        sheet: "1.2",
         exp: "Settanta = <strong>70</strong>. Higher tens: settanta=70, ottanta=80, novanta=90, cento=100."
     },
     {
         q: "What is the Italian word for 100?",
         opts: ["novanta", "mille", "trecento", "cento"],
         ans: 3,
+        sheet: "1.2",
         exp: "100 = <strong>cento</strong>. 101 = centouno — numbers combine into one word in Italian."
     },
 
@@ -552,24 +626,28 @@ const pool = [
         q: "What does 'Dove abita?' mean?",
         opts: ["How are you?", "Where are you from?", "What do you want?", "Where do you live? (formal)"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Dove abita?' (formal) / 'Dove abiti?' (informal) = Where do you live? Answer: 'Abito a [city]'."
     },
     {
         q: "How do you say 'I live in Rome'?",
         opts: ["Sono a Roma", "Ho a Roma", "Parlo a Roma", "Abito a Roma"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Abito a...' = I live in... from the verb <em>abitare</em> (to live). 'Abitare' is also in your -are verbs list."
     },
     {
         q: "What does 'Quanti anni hai?' mean?",
         opts: ["What year is it?", "How many years ago?", "When is your birthday?", "How old are you?"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Quanti anni hai?' = How old are you? Literally 'How many years do you have?' — Italians 'have' their age, not 'be' it."
     },
     {
         q: "How do you say 'I am 25 years old' in Italian?",
         opts: ["Sono venticinque anni", "Sto venticinque anni", "Abito venticinque anni", "Ho venticinque anni"],
         ans: 3,
+        sheet: "1.2",
         exp: "Use 'Ho...' (from <em>avere</em> = to have) for age. Italian says 'I have 25 years', not 'I am 25 years old'."
     },
 
@@ -578,18 +656,21 @@ const pool = [
         q: "What does 'Parla italiano?' mean?",
         opts: ["Do you understand Italian?", "Do you like Italian?", "Do you study Italian?", "Do you speak Italian? (formal)"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Parla italiano?' is the formal 'Do you speak Italian?' from <em>parlare</em> (to speak)."
     },
     {
         q: "What is the Italian word for 'Spanish' (language)?",
         opts: ["turco", "polacco", "olandese", "spagnolo"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Spagnolo' = Spanish. Others: tedesco=German, francese=French, inglese=English, turco=Turkish."
     },
     {
         q: "What is the Italian word for 'Dutch' (language)?",
         opts: ["turco", "polacco", "gallico", "olandese"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Olandese' = Dutch (from Olanda = Holland/Netherlands)."
     },
 
@@ -598,24 +679,28 @@ const pool = [
         q: "What is the plural of the masculine article 'il' (e.g. il libro)?",
         opts: ["la", "gli", "le", "i"],
         ans: 3,
+        sheet: "1.2",
         exp: "il → <strong>i</strong> (plural). Example: il libro → i libri (the book → the books)."
     },
     {
         q: "What is the plural of the feminine article 'la' (e.g. la donna)?",
         opts: ["i", "gli", "l'", "le"],
         ans: 3,
+        sheet: "1.2",
         exp: "la → <strong>le</strong> (plural). Example: la donna → le donne (the woman → the women)."
     },
     {
         q: "Which article is used before 'zio' (uncle) — ___ zio?",
         opts: ["il", "la", "l'", "lo"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Lo' is used before masculine nouns starting with z (zio) or s+consonant (lo sport). Plural: gli."
     },
     {
         q: "What is the plural of 'lo zio' (the uncle)?",
         opts: ["i zii", "le zie", "l'zii", "gli zii"],
         ans: 3,
+        sheet: "1.2",
         exp: "lo → <strong>gli</strong> in the plural. lo zio → gli zii. The same pattern: lo sport → gli sport."
     },
 
@@ -624,36 +709,42 @@ const pool = [
         q: "What does 'io ho' mean? (verb: avere)",
         opts: ["I want", "I speak", "I am", "I have"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Ho' = I have, from <em>avere</em> (to have). Conjugation: io ho · tu hai · lui/lei ha · noi abbiamo."
     },
     {
         q: "What does 'loro hanno' mean? (verb: avere)",
         opts: ["They want", "They speak", "They are", "They have"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Hanno' = third person plural of <em>avere</em>. Loro hanno = they have."
     },
     {
         q: "What does 'noi parliamo' mean? (verb: parlare)",
         opts: ["We want", "We have", "We are", "We speak"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Parliamo' = first person plural of <em>parlare</em> (to speak). Noi parliamo = we speak."
     },
     {
         q: "What does 'tu vuoi' mean? (verb: volere)",
         opts: ["You have", "You speak", "You are", "You want"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Vuoi' = second person singular of <em>volere</em> (to want). Tu vuoi = you want."
     },
     {
         q: "What does 'Lei vorrebbe' mean? (conditional of volere)",
         opts: ["She speaks", "She has", "You (formal) want", "You (formal) would like"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Vorrebbe' is the conditional of <em>volere</em>. Used for polite requests: 'Lei vorrebbe' = you (formal) would like / she would like."
     },
     {
         q: "Complete: 'Voi ___ italiano.' (verb: parlare — You all speak Italian.)",
         opts: ["parlano", "parla", "parliamo", "parlate"],
         ans: 3,
+        sheet: "1.2",
         exp: "Voi → <strong>parlate</strong>. Conjugation: io parlo · tu parli · lui/lei parla · noi parliamo · voi parlate · loro parlano."
     },
 
@@ -662,18 +753,21 @@ const pool = [
         q: "What is 'la prima colazione'?",
         opts: ["Lunch", "Dinner", "A snack", "Breakfast"],
         ans: 3,
+        sheet: "1.2",
         exp: "'La prima colazione' = breakfast. Literally 'the first meal of the day'."
     },
     {
         q: "What is 'il pranzo'?",
         opts: ["Breakfast", "Dinner", "A snack", "Lunch"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Il pranzo' = lunch. In Italy, <em>pranzo</em> is traditionally the main meal of the day."
     },
     {
         q: "What is 'la cena'?",
         opts: ["Breakfast", "Lunch", "A snack", "Dinner"],
         ans: 3,
+        sheet: "1.2",
         exp: "'La cena' = dinner. The three meals: la prima colazione · il pranzo · la cena."
     },
 
@@ -682,18 +776,21 @@ const pool = [
         q: "What does 'Lei ha fame?' mean?",
         opts: ["Are you thirsty?", "Are you tired?", "Do you want to eat?", "Are you hungry?"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Ha fame?' = Are you hungry? (formal). <em>Fame</em> = hunger. Answer: 'Sì, ho molta fame!'"
     },
     {
         q: "What does 'Ho una fame da lupo' mean?",
         opts: ["I don't like wolves", "I'm a little hungry", "I prefer meat", "I'm starving (lit: wolf's hunger)"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Ho una fame da lupo' is an Italian idiom meaning 'I'm starving!' — literally 'I have a wolf's hunger'."
     },
     {
         q: "What does 'Lei ha sete?' mean?",
         opts: ["Are you hungry?", "Are you tired?", "Are you OK?", "Are you thirsty?"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Ha sete?' = Are you thirsty? (formal). <em>Sete</em> = thirst. Contrast: fame=hunger, sete=thirst."
     },
 
@@ -702,30 +799,35 @@ const pool = [
         q: "What does 'studiare' mean?",
         opts: ["To speak", "To eat", "To play", "To study"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Studiare' = to study. A regular -are verb: io studio · tu studi · lui/lei studia."
     },
     {
         q: "What does 'mangiare' mean?",
         opts: ["To drink", "To play", "To watch", "To eat"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Mangiare' = to eat. Seen in 'Vorrebbe mangiare?' (Would you like to eat?)"
     },
     {
         q: "What does 'giocare' mean?",
         opts: ["To guard", "To study", "To watch", "To play"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Giocare' = to play. One of the regular -are verbs on your worksheet."
     },
     {
         q: "What does 'guardare' mean?",
         opts: ["To guard/protect only", "To study", "To eat", "To watch / look at"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Guardare' = to watch or look at. e.g. 'guardare la televisione' = to watch television."
     },
     {
         q: "What does 'chiamare' mean?",
         opts: ["To study", "To eat", "To live", "To call"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Chiamare' = to call. You already know 'mi chiamo' — that's the reflexive form, meaning 'I call myself'."
     },
 
@@ -735,60 +837,70 @@ const pool = [
         q: "What is the Italian word for 5?",
         opts: ["uno", "tre", "sette", "cinque"],
         ans: 3,
+        sheet: "1.1",
         exp: "5 = <strong>cinque</strong>. Core numbers: uno=1, due=2, tre=3, quattro=4, cinque=5."
     },
     {
         q: "What is the Italian word for 8?",
         opts: ["sei", "sette", "nove", "otto"],
         ans: 3,
+        sheet: "1.1",
         exp: "8 = <strong>otto</strong>. Nearby: sei=6, sette=7, otto=8, nove=9."
     },
     {
         q: "What number is 'undici'?",
         opts: ["10", "12", "13", "11"],
         ans: 3,
+        sheet: "1.1",
         exp: "Undici = <strong>11</strong>. Remember: dieci=10, undici=11, dodici=12."
     },
     {
         q: "What number is 'sedici'?",
         opts: ["15", "17", "14", "16"],
         ans: 3,
+        sheet: "1.1",
         exp: "Sedici = <strong>16</strong>. Pattern: quindici=15, sedici=16, diciassette=17."
     },
     {
         q: "What is the Italian word for 19?",
         opts: ["diciassette", "diciotto", "venti", "dicianove"],
         ans: 3,
+        sheet: "1.1",
         exp: "19 = <strong>dicianove</strong>. The last 'teen': sedici=16, diciassette=17, diciotto=18, dicianove=19."
     },
     {
         q: "What number is 'trenta'?",
         opts: ["20", "40", "21", "30"],
         ans: 3,
+        sheet: "1.2",
         exp: "Trenta = <strong>30</strong>. Tens: venti=20, trenta=30, quaranta=40."
     },
     {
         q: "What number is 'cinquanta'?",
         opts: ["40", "60", "15", "50"],
         ans: 3,
+        sheet: "1.2",
         exp: "Cinquanta = <strong>50</strong>. Note it echoes 'cinque' (5). Tens: quaranta=40, cinquanta=50, sessanta=60."
     },
     {
         q: "What number is 'ottanta'?",
         opts: ["70", "90", "18", "80"],
         ans: 3,
+        sheet: "1.2",
         exp: "Ottanta = <strong>80</strong>. Note it echoes 'otto' (8). Higher tens: settanta=70, ottanta=80, novanta=90."
     },
     {
         q: "What is 22 in Italian?",
         opts: ["ventuno", "ventitre", "venti", "ventidue"],
         ans: 3,
+        sheet: "1.2",
         exp: "22 = <strong>ventidue</strong>. Compound numbers join directly: venti + due = ventidue."
     },
     {
         q: "What number is 'ventotto'?",
         opts: ["26", "27", "29", "28"],
         ans: 3,
+        sheet: "1.2",
         exp: "Ventotto = <strong>28</strong>. Note: venti drops its 'i' before otto — venti + otto = ventotto."
     },
 
@@ -797,12 +909,14 @@ const pool = [
         q: "What is the 'io' (I) form of 'essere' (to be)?",
         opts: ["sei", "è", "siamo", "sono"],
         ans: 3,
+        sheet: "1.1",
         exp: "Io → <strong>sono</strong>. Full conjugation: io sono · tu sei · lui/lei è · noi siamo · voi siete · loro sono."
     },
     {
         q: "What is the 'tu' (you, informal) form of 'essere' (to be)?",
         opts: ["sono", "è", "siamo", "sei"],
         ans: 3,
+        sheet: "1.1",
         exp: "Tu → <strong>sei</strong>. Remember: io sono, tu sei, lui/lei è."
     },
 
@@ -811,24 +925,28 @@ const pool = [
         q: "What does 'Scozia' mean?",
         opts: ["England", "France", "Wales", "Scotland"],
         ans: 3,
+        sheet: "1.1",
         exp: "Scozia = <strong>Scotland</strong>. Also: Inghilterra=England, Galles=Wales, Irlanda del Nord=Northern Ireland."
     },
     {
         q: "What does 'Francia' mean?",
         opts: ["Italy", "Germany", "Spain", "France"],
         ans: 3,
+        sheet: "1.1",
         exp: "Francia = <strong>France</strong>. Related nationality: francese (French)."
     },
     {
         q: "What does 'Italia' mean?",
         opts: ["Spain", "France", "England", "Italy"],
         ans: 3,
+        sheet: "1.1",
         exp: "Italia = <strong>Italy</strong>. Related nationality: italiano/italiana (Italian)."
     },
     {
         q: "What does 'Regno Unito' mean?",
         opts: ["United States", "Great Britain", "England", "United Kingdom"],
         ans: 3,
+        sheet: "1.1",
         exp: "Regno Unito = <strong>United Kingdom</strong>. Gran Bretagna = Great Britain, Stati Uniti = United States."
     },
 
@@ -837,12 +955,14 @@ const pool = [
         q: "Which article is used before a masculine noun starting with a vowel, e.g. 'amico' (friend)?",
         opts: ["il", "lo", "la", "l'"],
         ans: 3,
+        sheet: "1.2",
         exp: "<strong>l'</strong> is used before any noun (masculine or feminine) starting with a vowel. l'amico, l'amica."
     },
     {
         q: "What is the plural of 'l'amico' (the friend, male)?",
         opts: ["i amici", "le amici", "l'amici", "gli amici"],
         ans: 3,
+        sheet: "1.2",
         exp: "l'amico → <strong>gli amici</strong>. 'Gli' is the plural of both 'lo' and 'l'' (masculine)."
     },
 
@@ -851,12 +971,14 @@ const pool = [
         q: "What does 'noi abbiamo' mean? (verb: avere)",
         opts: ["we want", "we speak", "we are", "we have"],
         ans: 3,
+        sheet: "1.2",
         exp: "Noi → <strong>abbiamo</strong> (avere). Full: io ho · tu hai · lui/lei ha · noi abbiamo · voi avete · loro hanno."
     },
     {
         q: "What does 'tu hai' mean? (verb: avere)",
         opts: ["you want", "you speak", "you are", "you have"],
         ans: 3,
+        sheet: "1.2",
         exp: "Tu → <strong>hai</strong> (avere). You have. Compare: io ho, tu hai, lui/lei ha."
     },
 
@@ -865,18 +987,21 @@ const pool = [
         q: "What does 'io voglio' mean? (verb: volere)",
         opts: ["I have", "I speak", "I am", "I want"],
         ans: 3,
+        sheet: "1.2",
         exp: "Io → <strong>voglio</strong> (volere). Full: io voglio · tu vuoi · lui/lei vuole · noi vogliamo · voi volete · loro vogliono."
     },
     {
         q: "What does 'lui/lei vuole' mean? (verb: volere)",
         opts: ["he/she has", "he/she speaks", "he/she is", "he/she wants"],
         ans: 3,
+        sheet: "1.2",
         exp: "Lui/lei → <strong>vuole</strong> (volere). He/she wants. The same form is used for formal 'Lei'."
     },
     {
         q: "What does 'vorrei' mean? (verb: volere, conditional)",
         opts: ["I want", "I have", "I speak", "I would like"],
         ans: 3,
+        sheet: "1.2",
         exp: "<strong>Vorrei</strong> is the polite conditional of <em>volere</em> — 'I would like'. Always use this when making requests!"
     },
 
@@ -885,12 +1010,14 @@ const pool = [
         q: "What does 'io parlo' mean? (verb: parlare)",
         opts: ["I have", "I want", "I am", "I speak"],
         ans: 3,
+        sheet: "1.2",
         exp: "Io → <strong>parlo</strong> (parlare). Full: io parlo · tu parli · lui/lei parla · noi parliamo · voi parlate · loro parlano."
     },
     {
         q: "What does 'loro parlano' mean? (verb: parlare)",
         opts: ["they have", "they want", "they are", "they speak"],
         ans: 3,
+        sheet: "1.2",
         exp: "Loro → <strong>parlano</strong> (parlare). They speak. Note the -ano ending for third person plural -are verbs."
     },
 
@@ -899,18 +1026,21 @@ const pool = [
         q: "What does 'portare' mean?",
         opts: ["to eat", "to study", "to play", "to carry / bring / wear"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Portare' = to carry, bring, or wear. e.g. 'Porta un cappello' = He/she is wearing a hat."
     },
     {
         q: "What does 'amare' mean?",
         opts: ["to eat", "to play", "to watch", "to love"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Amare' = to love. A regular -are verb. e.g. 'Amo l'italiano!' = I love Italian!"
     },
     {
         q: "What does 'imparare' mean?",
         opts: ["to speak", "to study", "to play", "to learn"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Imparare' = to learn. e.g. 'Sto imparando l'italiano' = I am learning Italian."
     },
 
@@ -919,18 +1049,21 @@ const pool = [
         q: "What does 'Buona notte!' mean?",
         opts: ["Good morning", "Good evening", "Goodbye", "Good night"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Buona notte!' = Good night. Used from 23:00–5:00 (<em>notte</em>), typically when going to bed."
     },
     {
         q: "What does 'Ci vediamo!' mean?",
         opts: ["Goodbye forever", "Good night", "Good morning", "See you! / We'll see each other!"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Ci vediamo!' literally means 'We'll see each other!' — a friendly way of saying 'See you!'"
     },
     {
         q: "What does 'Salve!' mean?",
         opts: ["Goodbye", "Good night", "See you soon", "Hello (neutral greeting)"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Salve!' is a neutral hello, slightly more formal than 'Ciao!' but less formal than 'Buongiorno!'"
     },
 
@@ -939,12 +1072,14 @@ const pool = [
         q: "What does 'abbastanza bene' mean?",
         opts: ["Very well", "So so", "Not bad", "Quite well / fairly well"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Abbastanza bene' = quite well / fairly well. <em>Abbastanza</em> means 'enough' or 'quite'."
     },
     {
         q: "What does 'va bene' mean?",
         opts: ["Not bad", "Very well", "I'm tired", "OK / that's fine"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Va bene' = OK, that's fine, it goes well. <em>Va</em> comes from the verb <em>andare</em> (to go)."
     },
 
@@ -953,12 +1088,14 @@ const pool = [
         q: "What does 'Capisce?' mean?",
         opts: ["Do you speak?", "Do you eat?", "Do you live here?", "Do you understand? (formal)"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Capisce?' (formal) / 'Capisci?' (informal) = Do you understand? From the verb <em>capire</em> (to understand)."
     },
     {
         q: "What does 'Vorrebbe mangiare?' mean?",
         opts: ["Are you hungry?", "Do you eat here?", "I want to eat", "Would you like to eat?"],
         ans: 3,
+        sheet: "1.2",
         exp: "'Vorrebbe mangiare?' = Would you like to eat? Using the polite conditional <em>vorrebbe</em> + infinitive <em>mangiare</em>."
     },
 
@@ -967,12 +1104,14 @@ const pool = [
         q: "What does 'Fantastico/a!' mean?",
         opts: ["Perfect", "Exactly right", "Possible", "Fantastic!"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Fantastico!' (male/general) or 'Fantastica!' (female) = Fantastic! The -o/-a ending agrees with the noun it describes."
     },
     {
         q: "What does 'Perfetto/a!' mean?",
         opts: ["Fantastic", "Exactly", "Possible", "Perfect!"],
         ans: 3,
+        sheet: "1.1",
         exp: "'Perfetto!' = Perfect! Used to express approval, like 'Esatto!' (Exactly!) and 'Fantastico!' (Fantastic!)"
     },
 
@@ -1010,9 +1149,24 @@ function prepareQuestion(q) {
     };
 }
 
+// ── Sheet selector wiring ────────────────────────────────────
+const sheetAllCb  = document.getElementById('sheetAll');
+const sheetCbs    = () => [...document.querySelectorAll('.sheet-cb')];
+
+sheetAllCb.addEventListener('change', () => {
+    sheetCbs().forEach(cb => cb.checked = sheetAllCb.checked);
+});
+sheetCbs().forEach(cb => cb.addEventListener('change', () => {
+    sheetAllCb.checked = sheetCbs().every(cb => cb.checked);
+}));
+
 // ── Start ────────────────────────────────────────────────────
 function startQuiz() {
-    questions = shuffle(pool).slice(0, TOTAL).map(prepareQuestion);
+    const checked = sheetCbs().filter(cb => cb.checked).map(cb => cb.value);
+    const active  = checked.length === 0 || checked.length === sheetCbs().length
+                    ? pool
+                    : pool.filter(q => checked.includes(q.sheet));
+    questions = shuffle(active).slice(0, TOTAL).map(prepareQuestion);
     current   = 0;
     score     = 0;
 
