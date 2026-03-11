@@ -1153,17 +1153,27 @@ function prepareQuestion(q) {
 const sheetAllCb  = document.getElementById('sheetAll');
 const sheetCbs    = () => [...document.querySelectorAll('.sheet-cb')];
 
+function updateStartBtn() {
+    const anyChecked = sheetCbs().some(cb => cb.checked);
+    const btn = document.querySelector('.start-btn');
+    btn.disabled = !anyChecked;
+    btn.style.opacity = anyChecked ? '' : '0.4';
+    btn.style.cursor  = anyChecked ? '' : 'not-allowed';
+}
+
 sheetAllCb.addEventListener('change', () => {
     sheetCbs().forEach(cb => cb.checked = sheetAllCb.checked);
+    updateStartBtn();
 });
 sheetCbs().forEach(cb => cb.addEventListener('change', () => {
     sheetAllCb.checked = sheetCbs().every(cb => cb.checked);
+    updateStartBtn();
 }));
 
 // ── Start ────────────────────────────────────────────────────
 function startQuiz() {
     const checked = sheetCbs().filter(cb => cb.checked).map(cb => cb.value);
-    const active  = checked.length === 0 || checked.length === sheetCbs().length
+    const active  = checked.length === sheetCbs().length
                     ? pool
                     : pool.filter(q => checked.includes(q.sheet));
     questions = shuffle(active).slice(0, TOTAL).map(prepareQuestion);
