@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Quiz — v1.0</title>
+    <title>Italian Quiz — v1.1</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -290,7 +290,7 @@
 
     <header>
         <h1>Italian Quiz 🇮🇹</h1>
-        <div class="subtitle">v1.0 · Serena Jones 2026</div>
+        <div class="subtitle">v1.1 · Serena Jones 2026</div>
     </header>
     <div class="flag-strip">
         <span class="flag-green"></span>
@@ -310,9 +310,10 @@
             <label><input type="checkbox" id="sheetAll" checked><span>All</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.1" checked><span>1.1</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.2" checked><span>1.2</span></label>
+            <label><input type="checkbox" class="sheet-cb" value="1.3" checked><span>1.3</span></label>
         </div>
         <ul>
-            <li>📋 20 random questions drawn from a pool of 100</li>
+            <li>📋 20 random questions drawn from a pool of 168</li>
             <li>🔤 4 multiple-choice options per question</li>
             <li>✅ Explanations given for any wrong answers</li>
             <li>🏆 Score tracked throughout</li>
@@ -1115,7 +1116,553 @@ const pool = [
         exp: "'Perfetto!' = Perfect! Used to express approval, like 'Esatto!' (Exactly!) and 'Fantastico!' (Fantastic!)"
     },
 
-]; // end pool  (100 questions total)
+
+    // ── ORDINAL NUMBERS ────────────────────────────────────────
+    {
+        q: "What is the Italian for '1st / first'?",
+        opts: ["quinto/a", "terzo/a", "secondo/a", "primo/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "1° = <strong>primo/a</strong>. The first three ordinals (primo, secondo, terzo) are the most important to learn."
+    },
+    {
+        q: "What is the Italian for '2nd / second'?",
+        opts: ["primo/a", "terzo/a", "quarto/a", "secondo/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "2° = <strong>secondo/a</strong>. Also the name of the main meat/fish course in an Italian meal!"
+    },
+    {
+        q: "What is the Italian for '3rd / third'?",
+        opts: ["primo/a", "secondo/a", "quinto/a", "terzo/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "3° = <strong>terzo/a</strong>. The first three: primo, secondo, terzo."
+    },
+    {
+        q: "What is the Italian for '4th / fourth'?",
+        opts: ["primo/a", "quinto/a", "terzo/a", "quarto/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "4° = <strong>quarto/a</strong>. Note the connection to 'quattro' (four)."
+    },
+    {
+        q: "What is the Italian for '5th / fifth'?",
+        opts: ["sesto/a", "quarto/a", "terzo/a", "quinto/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "5° = <strong>quinto/a</strong>. Note the connection to 'cinque' (five)."
+    },
+    {
+        q: "What is the Italian for '6th / sixth'?",
+        opts: ["quinto/a", "settimo/a", "ottavo/a", "sesto/a"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "6° = <strong>sesto/a</strong>. Note the connection to 'sei' (six)."
+    },
+    {
+        q: "What does 'settimo/a' mean?",
+        opts: ["sixth", "eighth", "ninth", "seventh"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Settimo/a = <strong>seventh</strong>. From 'sette' (seven)."
+    },
+    {
+        q: "What does 'ottavo/a' mean?",
+        opts: ["sixth", "seventh", "ninth", "eighth"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Ottavo/a = <strong>eighth</strong>. From 'otto' (eight)."
+    },
+    {
+        q: "What does 'nono/a' mean?",
+        opts: ["seventh", "eighth", "tenth", "ninth"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Nono/a = <strong>ninth</strong>. From 'nove' (nine)."
+    },
+    {
+        q: "What does 'decimo/a' mean?",
+        opts: ["seventh", "eighth", "ninth", "tenth"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Decimo/a = <strong>tenth</strong>. From 'dieci' (ten). Think of 'decimal'."
+    },
+
+    // ── RESTAURANT COURSES ─────────────────────────────────────
+    {
+        q: "What is 'l'antipasto' in an Italian meal?",
+        opts: ["main meat course", "dessert", "side dish", "starter / appetiser"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Antipasto</em> = starter/appetiser. Literally 'before the meal' (<em>anti</em> = before, <em>pasto</em> = meal)."
+    },
+    {
+        q: "What is the 'primo' course in an Italian meal?",
+        opts: ["starter", "main meat course", "dessert", "first course — usually pasta, soup or risotto"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il primo</em> = the first course, typically pasta, risotto or soup. It follows the antipasto."
+    },
+    {
+        q: "What is the 'secondo' course in an Italian meal?",
+        opts: ["pasta course", "starter", "dessert", "second/main course — meat or fish"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il secondo</em> = the main course, usually meat or fish. It follows il primo."
+    },
+    {
+        q: "What does 'contorno' mean in the context of an Italian meal?",
+        opts: ["starter", "dessert", "main course", "side dish / vegetable accompaniment"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il contorno</em> = side dish, typically vegetables or salad served alongside the secondo."
+    },
+    {
+        q: "What is the correct order of courses in a traditional Italian meal?",
+        opts: ["Primo, Antipasto, Secondo, Dessert", "Secondo, Primo, Antipasto, Dessert", "Antipasto, Secondo, Primo, Dessert", "Antipasto, Primo, Secondo, Dessert"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "The order is: <strong>Antipasto → Primo → Secondo (+ Contorno) → Dessert</strong>."
+    },
+
+    // ── RESTAURANT PHRASES ──────────────────────────────────────
+    {
+        q: "What does a waiter mean by 'Cosa desidera?'",
+        opts: ["Can I take your coat?", "Are you ready to be seated?", "Would you like a drink?", "What would you like? (formal, to one person)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Cosa desidera?' = What would you like? Formal singular. <em>Desiderare</em> = to wish/desire."
+    },
+    {
+        q: "What does 'I signori desiderano?' mean?",
+        opts: ["Is the gentleman ready?", "What would you like to drink?", "Here is your order", "What would you like? (to a group of guests)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'I signori desiderano?' = What would the guests like? Used to address a group formally. <em>I signori</em> = the gentlemen/guests."
+    },
+    {
+        q: "What does 'Sì, dica!' mean?",
+        opts: ["Yes, please!", "Yes, I'll have that!", "Yes, thank you!", "Yes, go ahead! / Yes, tell me!"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Sì, dica!' = Yes, go ahead! / Yes, tell me! It invites the customer to speak. <em>Dica</em> is the formal imperative of <em>dire</em> (to say)."
+    },
+    {
+        q: "What does 'Preferisce qualcos'altro?' mean?",
+        opts: ["Would you like to pay?", "Can I take your order?", "Are you finished?", "Would you prefer something else?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Preferisce qualcos'altro?' = Would you prefer something else? <em>Qualcos'altro</em> = something else."
+    },
+    {
+        q: "What does 'Volete altro?' mean?",
+        opts: ["Do you want to pay?", "Do you want to drink?", "Is that everything?", "Do you want anything else? (plural)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Volete altro?' = Do you (plural) want anything else? <em>Volete</em> = voi form of <em>volere</em>."
+    },
+    {
+        q: "What does 'E da bere?' mean?",
+        opts: ["And for dessert?", "And the bill?", "And for starters?", "And to drink?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'E da bere?' = And to drink? A common waiter phrase. <em>Bere</em> = to drink."
+    },
+    {
+        q: "What is 'il cameriere'?",
+        opts: ["the chef", "the customer", "the manager", "the waiter"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il cameriere</em> = the waiter (male). The female form is <em>la cameriera</em>."
+    },
+    {
+        q: "What is 'la cameriera'?",
+        opts: ["the chef", "the female customer", "the manager", "the waitress"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>La cameriera</em> = the waitress. The male form is <em>il cameriere</em>."
+    },
+
+    // ── CONVERSATION PHRASES ────────────────────────────────────
+    {
+        q: "What does 'Scusi' mean in a restaurant context?",
+        opts: ["Please (formal)", "Thank you", "You're welcome", "Excuse me / Sorry (formal)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Scusi' = Excuse me / Sorry (formal). Use to get a waiter's attention. Informal version: 'Scusa'."
+    },
+    {
+        q: "What does 'Per favore' mean?",
+        opts: ["Excuse me", "Thank you", "You're welcome", "Please"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Per favore' = Please. Can also say <em>per cortesia</em> — both mean please."
+    },
+    {
+        q: "What does 'Per cortesia' mean?",
+        opts: ["Excuse me", "Thank you very much", "You're welcome", "Please / If you please"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Per cortesia' = Please (politely). It is interchangeable with <em>per favore</em>."
+    },
+    {
+        q: "What does 'Io prendo...' mean when ordering in a restaurant?",
+        opts: ["I would prefer...", "I would like to try...", "I don't want...", "I'll have... / I'm having..."],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Io prendo...' = I'll have... Literally 'I take...'. A natural way to order in Italian."
+    },
+    {
+        q: "What does 'Vorremmo...' mean?",
+        opts: ["I would like...", "They would like...", "You would like...", "We would like..."],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Vorremmo...' = We would like... The <em>noi</em> conditional of <em>volere</em>. Compare: <em>vorrei</em> = I would like."
+    },
+    {
+        q: "What does 'Anch'io' mean?",
+        opts: ["And you?", "Not me", "Also that", "Me too / I also"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Anch'io' = Me too / Also I. <em>Anche</em> = also/too, <em>io</em> = I."
+    },
+
+    // ── VERB: PRENDERE ──────────────────────────────────────────
+    {
+        q: "What does the verb 'prendere' mean?",
+        opts: ["to prefer", "to drink", "to eat", "to take / to have (food or drink)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Prendere</em> = to take. In a restaurant it means 'to have' — 'Cosa prendi?' = What are you having?"
+    },
+    {
+        q: "What does 'io prendo' mean? (prendere)",
+        opts: ["I prefer", "I drink", "I eat", "I take / I'll have"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Io → <strong>prendo</strong> (prendere). Conjugation: io prendo · tu prendi · lui/lei prende."
+    },
+    {
+        q: "What does 'tu prendi' mean? (prendere)",
+        opts: ["you prefer", "you drink", "you eat", "you take / you have"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Tu → <strong>prendi</strong> (prendere). E.g. 'Cosa prendi?' = What are you having?"
+    },
+    {
+        q: "What does 'Lei prende' mean? (prendere)",
+        opts: ["she prefers", "she drinks", "she eats", "you (formal) / he/she takes"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Lei/lui/lei → <strong>prende</strong> (prendere). Same form for formal 'you' and third person singular."
+    },
+    {
+        q: "Complete: 'Noi ___ la pasta.' (prendere)",
+        opts: ["prendono", "prende", "prendi", "prendiamo"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Noi → <strong>prendiamo</strong> (prendere). Full: io prendo · tu prendi · lui/lei prende · noi prendiamo · voi prendete · loro prendono."
+    },
+    {
+        q: "Complete: 'Voi ___ il menu.' (prendere)",
+        opts: ["prendono", "prende", "prendiamo", "prendete"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Voi → <strong>prendete</strong> (prendere)."
+    },
+    {
+        q: "What does 'loro prendono' mean? (prendere)",
+        opts: ["they prefer", "they drink", "they eat", "they take / they have"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Loro → <strong>prendono</strong> (prendere). The -ono ending is standard for third person plural -ere verbs."
+    },
+
+    // ── VERB: PREFERIRE ─────────────────────────────────────────
+    {
+        q: "What does the verb 'preferire' mean?",
+        opts: ["to take", "to drink", "to eat", "to prefer"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Preferire</em> = to prefer. An -ire verb with the -isc- stem change in most forms."
+    },
+    {
+        q: "What does 'io preferisco' mean? (preferire)",
+        opts: ["I take", "I drink", "I eat", "I prefer"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Io → <strong>preferisco</strong> (preferire). Note the -isc- inserted before the ending."
+    },
+    {
+        q: "What does 'tu preferisci' mean? (preferire)",
+        opts: ["you take", "you drink", "you eat", "you prefer"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Tu → <strong>preferisci</strong> (preferire). The -isc- pattern: io preferisco · tu preferisci · lui/lei preferisce."
+    },
+    {
+        q: "What does 'Lei preferisce' mean? (preferire)",
+        opts: ["she takes", "she drinks", "she eats", "you (formal) / he/she prefers"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Lei/lui/lei → <strong>preferisce</strong> (preferire)."
+    },
+    {
+        q: "Complete: 'Noi ___ il vino rosso.' (preferire)",
+        opts: ["preferiscono", "preferisce", "preferisci", "preferiamo"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Noi → <strong>preferiamo</strong> (preferire). Note: no -isc- in the noi/voi forms."
+    },
+    {
+        q: "Complete: 'Voi ___ il pesce?' (preferire)",
+        opts: ["preferiscono", "preferisce", "preferiamo", "preferite"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Voi → <strong>preferite</strong> (preferire). No -isc- for noi/voi."
+    },
+    {
+        q: "What does 'loro preferiscono' mean? (preferire)",
+        opts: ["they take", "they drink", "they eat", "they prefer"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "Loro → <strong>preferiscono</strong> (preferire). The -isc- returns for the loro form."
+    },
+
+    // ── PAYING THE BILL ─────────────────────────────────────────
+    {
+        q: "How do you ask for the bill in Italian?",
+        opts: ["Posso pagare?", "Quant'è?", "Volete altro?", "Il conto, per favore?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Il conto, per favore?' = The bill, please? <em>Il conto</em> = the bill/check."
+    },
+    {
+        q: "What does 'Posso pagare?' mean?",
+        opts: ["Can I book?", "Can I eat here?", "Can I order?", "Can I pay?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Posso pagare?' = Can I pay? <em>Posso</em> = I can (from <em>potere</em>), <em>pagare</em> = to pay."
+    },
+    {
+        q: "What does 'Quant'è?' mean?",
+        opts: ["What time is it?", "How many are you?", "Where is it?", "How much is it?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Quant'è?' = How much is it? Short for <em>Quanto è?</em> A useful phrase when paying."
+    },
+    {
+        q: "What does 'contanti' mean?",
+        opts: ["credit card", "receipt", "tip", "cash"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Contanti</em> = cash. 'Pago in contanti' = I'll pay in cash."
+    },
+    {
+        q: "What does 'carta di credito / bancomat' mean?",
+        opts: ["cash", "receipt", "tip", "credit card / debit card"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Carta di credito</em> = credit card. <em>Bancomat</em> = debit card / ATM card."
+    },
+    {
+        q: "What does 'servizio compreso' mean?",
+        opts: ["cash only", "VAT included", "no tip necessary", "service included"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Servizio compreso' = service included. <em>Compreso</em> = included. No additional tip is required."
+    },
+    {
+        q: "What does 'Tenga il resto!' mean?",
+        opts: ["Here is the receipt!", "How much is it?", "Can I pay now?", "Keep the change!"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "'Tenga il resto!' = Keep the change! <em>Tenere</em> = to keep, <em>il resto</em> = the change/remainder."
+    },
+    {
+        q: "What does 'Una mancia?' mean?",
+        opts: ["A receipt?", "A menu?", "A reservation?", "A tip?"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Una mancia</em> = a tip. In Italy tipping is not obligatory, especially if 'servizio compreso' is shown."
+    },
+    {
+        q: "What does 'I.V.A.' stand for in Italian?",
+        opts: ["Italian Value Added", "Italian Restaurant Tax", "International Dining Fee", "Imposta sul valore aggiunto (VAT)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "I.V.A. = <em>Imposta sul valore aggiunto</em> = Value Added Tax (VAT). It may appear separately on an Italian bill."
+    },
+
+    // ── -ERE AND -IRE VERBS ─────────────────────────────────────
+    {
+        q: "What does 'bere' mean?",
+        opts: ["to eat", "to run", "to read", "to drink"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Bere</em> = to drink. An irregular -ere verb. 'E da bere?' = And to drink?"
+    },
+    {
+        q: "What does 'leggere' mean?",
+        opts: ["to write", "to run", "to drink", "to read"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Leggere</em> = to read. A regular -ere verb. E.g. 'Leggo il menu' = I read the menu."
+    },
+    {
+        q: "What does 'scrivere' mean?",
+        opts: ["to read", "to run", "to drink", "to write"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Scrivere</em> = to write. A regular -ere verb. E.g. 'Il cameriere scrive l'ordine' = The waiter writes the order."
+    },
+    {
+        q: "What does 'correre' mean?",
+        opts: ["to read", "to write", "to drink", "to run"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Correre</em> = to run. A regular -ere verb. Think of 'corridor' — a place you run along!"
+    },
+    {
+        q: "What does 'capire' mean?",
+        opts: ["to finish", "to clean", "to suggest", "to understand"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Capire</em> = to understand. An -ire/-isc- verb: io capisco · tu capisci · lui/lei capisce."
+    },
+    {
+        q: "What does 'finire' mean?",
+        opts: ["to understand", "to clean", "to suggest", "to finish"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Finire</em> = to finish. Like <em>preferire</em>, it uses the -isc- pattern: io finisco · tu finisci."
+    },
+    {
+        q: "What does 'suggerire' mean?",
+        opts: ["to finish", "to understand", "to clean", "to suggest"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Suggerire</em> = to suggest. An -ire/-isc- verb. 'Cosa suggerisce?' = What do you suggest?"
+    },
+    {
+        q: "What does 'pulire' mean?",
+        opts: ["to finish", "to understand", "to suggest", "to clean"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Pulire</em> = to clean. An -ire/-isc- verb. 'Il cameriere pulisce il tavolo' = The waiter cleans the table."
+    },
+
+    // ── TABLE ITEMS ─────────────────────────────────────────────
+    {
+        q: "What is 'il coltello'?",
+        opts: ["fork", "spoon", "glass", "knife"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il coltello</em> = the knife. Table set: il piatto (plate), il coltello (knife), la forchetta (fork), il cucchiaio (spoon)."
+    },
+    {
+        q: "What is 'la forchetta'?",
+        opts: ["knife", "spoon", "plate", "fork"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>La forchetta</em> = the fork."
+    },
+    {
+        q: "What is 'il cucchiaio'?",
+        opts: ["knife", "fork", "teaspoon", "spoon"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il cucchiaio</em> = the spoon. The teaspoon is <em>il cucchiaino</em> (the little spoon)."
+    },
+    {
+        q: "What is 'il bicchiere'?",
+        opts: ["plate", "cup", "bottle", "glass (for drinking)"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il bicchiere</em> = the (drinking) glass. For a cup: <em>la tazza</em>."
+    },
+    {
+        q: "What is 'la tazza'?",
+        opts: ["glass", "plate", "bottle", "cup"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>La tazza</em> = the cup. Used for coffee, tea etc. For a drinking glass: <em>il bicchiere</em>."
+    },
+    {
+        q: "What is 'il sale'?",
+        opts: ["pepper", "oil", "vinegar", "salt"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il sale</em> = salt. Often paired with <em>il pepe</em> (pepper) on the table."
+    },
+    {
+        q: "What is 'il pepe'?",
+        opts: ["salt", "oil", "vinegar", "pepper"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Il pepe</em> = pepper. Salt and pepper = <em>il sale e il pepe</em>."
+    },
+    {
+        q: "What is 'l'aceto'?",
+        opts: ["salt", "pepper", "oil", "vinegar"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>L'aceto</em> = vinegar. Often found on the table alongside <em>l'olio</em> (oil)."
+    },
+    {
+        q: "What is 'l'olio'?",
+        opts: ["salt", "vinegar", "water", "oil"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>L'olio</em> = oil. Olive oil (<em>olio d'oliva</em>) is a staple of Italian cooking."
+    },
+    {
+        q: "What is 'la bottiglia'?",
+        opts: ["glass", "cup", "plate", "bottle"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>La bottiglia</em> = the bottle. E.g. 'Una bottiglia d'acqua, per favore' = A bottle of water, please."
+    },
+
+    // ── INDEFINITE ARTICLES ─────────────────────────────────────
+    {
+        q: "Which indefinite article goes before a masculine noun starting with most consonants? (e.g. ___ commesso)",
+        opts: ["uno", "un'", "una", "un"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<strong>Un</strong> commesso = a (male) shop assistant. <em>Un</em> is used before masculine nouns starting with most consonants or a vowel."
+    },
+    {
+        q: "Which indefinite article goes before a masculine noun starting with z or s+consonant? (e.g. ___ straniero)",
+        opts: ["un", "un'", "una", "uno"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<strong>Uno</strong> straniero = a stranger. <em>Uno</em> is used before masculine nouns starting with z, s+consonant, gn, ps, x."
+    },
+    {
+        q: "Which indefinite article goes before a feminine noun starting with a consonant? (e.g. ___ commessa)",
+        opts: ["un", "uno", "un'", "una"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<strong>Una</strong> commessa = a (female) shop assistant. <em>Una</em> is used before feminine nouns starting with a consonant."
+    },
+    {
+        q: "Which indefinite article goes before a feminine noun starting with a vowel? (e.g. ___ impiegata)",
+        opts: ["un", "uno", "una", "un'"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<strong>Un'</strong>impiegata = a (female) employee. <em>Un'</em> (with apostrophe) is used before feminine nouns starting with a vowel."
+    },
+    {
+        q: "What does 'un impiegato' mean?",
+        opts: ["a female employee", "a stranger", "a waiter", "a male employee / clerk"],
+        ans: 3,
+        sheet: "1.3",
+        exp: "<em>Un impiegato</em> = a male employee/clerk. The female form is <em>un'impiegata</em>."
+    },
+
+]; // end pool  (168 questions total)
 
 // ============================================================
 //  QUIZ STATE
