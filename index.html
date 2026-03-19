@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Quiz — v1.1</title>
+    <title>Italian Quiz — v1.2</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -290,7 +290,7 @@
 
     <header>
         <h1>Italian Quiz 🇮🇹</h1>
-        <div class="subtitle">v1.1 · Serena Jones 2026</div>
+        <div class="subtitle">v1.2 · Serena Jones 2026</div>
     </header>
     <div class="flag-strip">
         <span class="flag-green"></span>
@@ -311,9 +311,10 @@
             <label><input type="checkbox" class="sheet-cb" value="1.1" checked><span>1.1</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.2" checked><span>1.2</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.3" checked><span>1.3</span></label>
+            <label><input type="checkbox" class="sheet-cb" value="1.4" checked><span>1.4</span></label>
         </div>
         <ul>
-            <li>📋 20 random questions drawn from a pool of 168</li>
+            <li>📋 20 random questions drawn from a pool of 231</li>
             <li>🔤 4 multiple-choice options per question</li>
             <li>✅ Explanations given for any wrong answers</li>
             <li>🏆 Score tracked throughout</li>
@@ -1662,7 +1663,477 @@ const pool = [
         exp: "<em>Un impiegato</em> = a male employee/clerk. The female form is <em>un'impiegata</em>."
     },
 
-]; // end pool  (168 questions total)
+
+    // ── TIME: CHE ORE SONO? ─────────────────────────────────────
+    {
+        q: "What does 'Che ore sono?' mean?",
+        opts: ["What day is it?", "What month is it?", "When do we meet?", "What time is it?"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Che ore sono?' = What time is it? Literally 'What hours are they?'"
+    },
+    {
+        q: "How do you say 7:00 in Italian?",
+        opts: ["È l'una", "Sono le sette e mezza", "È mezzogiorno", "Sono le sette"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le sette' = It is 7:00. Most times use 'Sono le...' (plural). Only 1 o'clock uses 'È l'una'."
+    },
+    {
+        q: "How do you say 7:30 in Italian?",
+        opts: ["Sono le sette e un quarto", "È l'una e mezza", "Sono le sette meno mezza", "Sono le sette e mezza"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le sette e mezza' = 7:30. <em>Mezza</em> = half — 'half past seven'."
+    },
+    {
+        q: "What does 'mezza' mean in the context of telling the time?",
+        opts: ["a quarter", "minus / to", "midnight", "half (past)"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Mezza</em> = half. 'Sono le sette e mezza' = 7:30 (half past seven)."
+    },
+    {
+        q: "How do you say 2:15 in Italian?",
+        opts: ["Sono le due meno un quarto", "Sono le due e mezza", "Sono le due e venticinque", "Sono le due e un quarto"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le due e un quarto' = 2:15. <em>Un quarto</em> = a quarter. Can also say 'Sono le due e quindici'."
+    },
+    {
+        q: "What does 'un quarto' mean in the context of time?",
+        opts: ["half past", "twenty-five minutes", "three quarters", "a quarter (15 minutes)"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Un quarto</em> = a quarter. 'Sono le due e un quarto' = 2:15 (quarter past two)."
+    },
+    {
+        q: "How do you say 3:25 in Italian?",
+        opts: ["Sono le tre e un quarto", "Sono le tre meno venticinque", "Sono le tre e venti", "Sono le tre e venticinque"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le tre e venticinque' = 3:25. Direct pattern: hour + e + minutes."
+    },
+    {
+        q: "How do you say 5:45 in Italian using 'meno'?",
+        opts: ["Sono le cinque e tre quarti", "Sono le cinque e quarantacinque", "Sono le cinque meno mezza", "Sono le sei meno un quarto"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le sei meno un quarto' = 5:45. <em>Meno</em> = minus, so 'six minus a quarter'."
+    },
+    {
+        q: "What does 'meno' mean in the context of telling the time?",
+        opts: ["past / and", "half past", "o'clock", "minus / to (before the hour)"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Meno</em> = minus. 'Sono le sei meno un quarto' = quarter to six (5:45)."
+    },
+    {
+        q: "How do you say noon (12:00) in Italian?",
+        opts: ["È mezzanotte", "Sono le dodici", "È l'una", "È mezzogiorno"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'È mezzogiorno' = It is midday / noon. <em>Giorno</em> = day."
+    },
+    {
+        q: "How do you say midnight (00:00) in Italian?",
+        opts: ["È mezzogiorno", "Sono le zero", "È l'una di notte", "È mezzanotte"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'È mezzanotte' = It is midnight. <em>Notte</em> = night."
+    },
+    {
+        q: "What does 'Sono le tre e venticinque' mean?",
+        opts: ["It is 2:25", "It is 3:35", "It is 3:15", "It is 3:25"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Sono le tre e venticinque' = It is 3:25. <em>Venticinque</em> = twenty-five."
+    },
+    {
+        q: "What does 'È l'una e mezza' mean?",
+        opts: ["It is 12:30", "It is 11:30", "It is 2:30", "It is 1:30"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'È l'una e mezza' = It is 1:30. Use 'È l'una' (singular) for 1 o'clock — not 'Sono le una'."
+    },
+    {
+        q: "Why do you say 'È l'una' but 'Sono le due'?",
+        opts: ["È is more formal", "'una' is irregular", "The 'e' changes the rule", "L'una is singular — all other hours are plural"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "One o'clock is singular ('l'una'), so we use 'È'. All other hours are plural, so we use 'Sono le'."
+    },
+    {
+        q: "What does 'tre quarti' mean in the context of time?",
+        opts: ["a quarter past", "half past", "twenty-five minutes", "three quarters (45 minutes past)"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Tre quarti</em> = three quarters. 'Sono le cinque e tre quarti' = 5:45 — another way to say quarter to six."
+    },
+
+    // ── DAYS OF THE WEEK ────────────────────────────────────────
+    {
+        q: "What is 'lunedì' in English?",
+        opts: ["Tuesday", "Wednesday", "Sunday", "Monday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Lunedì</em> = Monday. From <em>luna</em> (moon) — the moon's day."
+    },
+    {
+        q: "What is 'martedì' in English?",
+        opts: ["Monday", "Wednesday", "Thursday", "Tuesday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Martedì</em> = Tuesday. From <em>Marte</em> (Mars) — Mars's day."
+    },
+    {
+        q: "What is 'mercoledì' in English?",
+        opts: ["Monday", "Tuesday", "Thursday", "Wednesday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Mercoledì</em> = Wednesday. From <em>Mercurio</em> (Mercury) — Mercury's day."
+    },
+    {
+        q: "What is 'giovedì' in English?",
+        opts: ["Tuesday", "Friday", "Saturday", "Thursday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Giovedì</em> = Thursday. From <em>Giove</em> (Jupiter) — Jupiter's day."
+    },
+    {
+        q: "What is 'venerdì' in English?",
+        opts: ["Thursday", "Saturday", "Sunday", "Friday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Venerdì</em> = Friday. From <em>Venere</em> (Venus) — Venus's day."
+    },
+    {
+        q: "What is 'sabato' in English?",
+        opts: ["Friday", "Sunday", "Monday", "Saturday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Sabato</em> = Saturday. From Hebrew <em>Shabbat</em> — the Sabbath."
+    },
+    {
+        q: "What is 'domenica' in English?",
+        opts: ["Saturday", "Friday", "Monday", "Sunday"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Domenica</em> = Sunday. From Latin <em>Dominicus</em> — the Lord's day."
+    },
+    {
+        q: "Which day comes after 'giovedì' (Thursday)?",
+        opts: ["mercoledì", "sabato", "domenica", "venerdì"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "After giovedì (Thursday) comes <strong>venerdì</strong> (Friday)."
+    },
+
+    // ── MONTHS ──────────────────────────────────────────────────
+    {
+        q: "What is 'gennaio' in English?",
+        opts: ["February", "March", "June", "January"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Gennaio</em> = January. From Latin <em>Ianuarius</em> — the month of Janus."
+    },
+    {
+        q: "What is 'febbraio' in English?",
+        opts: ["January", "March", "April", "February"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Febbraio</em> = February."
+    },
+    {
+        q: "What is 'marzo' in English?",
+        opts: ["January", "February", "April", "March"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Marzo</em> = March. From <em>Marte</em> (Mars) — Mars's month."
+    },
+    {
+        q: "What is 'aprile' in English?",
+        opts: ["March", "May", "June", "April"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Aprile</em> = April."
+    },
+    {
+        q: "What is 'maggio' in English?",
+        opts: ["April", "June", "July", "May"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Maggio</em> = May."
+    },
+    {
+        q: "What is 'giugno' in English?",
+        opts: ["May", "July", "August", "June"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Giugno</em> = June."
+    },
+    {
+        q: "What is 'luglio' in English?",
+        opts: ["June", "August", "September", "July"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Luglio</em> = July. From Latin <em>Iulius</em> — Julius Caesar's month."
+    },
+    {
+        q: "What is 'agosto' in English?",
+        opts: ["July", "September", "October", "August"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Agosto</em> = August. From Latin <em>Augustus</em> — Emperor Augustus's month."
+    },
+    {
+        q: "What is 'settembre' in English?",
+        opts: ["August", "October", "November", "September"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Settembre</em> = September. Note: <em>sette</em> = seven — it was the 7th month in the old Roman calendar."
+    },
+    {
+        q: "What is 'ottobre' in English?",
+        opts: ["September", "November", "December", "October"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Ottobre</em> = October. Note: <em>otto</em> = eight — it was the 8th month in the old Roman calendar."
+    },
+    {
+        q: "What is 'novembre' in English?",
+        opts: ["October", "December", "January", "November"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Novembre</em> = November. Note: <em>nove</em> = nine — it was the 9th month in the old Roman calendar."
+    },
+    {
+        q: "What is 'dicembre' in English?",
+        opts: ["October", "November", "January", "December"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Dicembre</em> = December. Note: <em>dieci</em> = ten — it was the 10th month in the old Roman calendar."
+    },
+    {
+        q: "Which month comes after 'giugno' (June)?",
+        opts: ["maggio", "agosto", "settembre", "luglio"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "After giugno (June) comes <strong>luglio</strong> (July)."
+    },
+
+    // ── RESTAURANT RESERVATION ──────────────────────────────────
+    {
+        q: "What does 'Vorrei prenotare un tavolo' mean?",
+        opts: ["I'd like to order the menu", "I'd like to pay the bill", "I'd like a table for one", "I'd like to reserve a table"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Vorrei prenotare un tavolo' = I'd like to reserve a table. <em>Prenotare</em> = to book/reserve."
+    },
+    {
+        q: "What does 'Per quante persone?' mean?",
+        opts: ["How many courses?", "At what time?", "Under what name?", "For how many people?"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'Per quante persone?' = For how many people? <em>Quante</em> = how many (feminine plural), <em>persone</em> = people."
+    },
+    {
+        q: "What does 'D'accordo' mean?",
+        opts: ["Thank you", "See you later", "Certainly", "OK / Agreed"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'D'accordo' = OK / Agreed. A very common Italian phrase for agreement."
+    },
+    {
+        q: "What does 'A che nome?' mean?",
+        opts: ["What is your address?", "How many people?", "At what time?", "Under what name?"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'A che nome?' = Under what name? Used when making a restaurant reservation."
+    },
+    {
+        q: "What does 'forse' mean?",
+        opts: ["certainly", "exactly", "approximately", "maybe / perhaps"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Forse</em> = maybe / perhaps. E.g. 'Quattro, forse cinque' = Four, maybe five."
+    },
+    {
+        q: "What does 'Certo' mean?",
+        opts: ["Perhaps", "Agreed", "Not at all", "Certainly / Of course"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Certo</em> = certainly / of course. A confident affirmative response."
+    },
+    {
+        q: "What does 'A più tardi' mean?",
+        opts: ["See you soon", "Goodbye for now", "Until next time", "See you later"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "'A più tardi' = See you later. <em>Più tardi</em> = later."
+    },
+    {
+        q: "What does 'prenotare' mean?",
+        opts: ["to order", "to pay", "to arrive", "to book / reserve"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Prenotare</em> = to book / reserve. E.g. 'Vorrei prenotare un tavolo' = I'd like to reserve a table."
+    },
+
+    // ── VERB: POTERE ────────────────────────────────────────────
+    {
+        q: "What does the verb 'potere' mean?",
+        opts: ["to go", "to drink", "to want", "to be able to / can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Potere</em> = to be able to / can. It is a modal verb used with an infinitive: 'Posso prenotare?' = Can I book?"
+    },
+    {
+        q: "What does 'io posso' mean? (potere)",
+        opts: ["I go", "I drink", "I want", "I can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Io → <strong>posso</strong> (potere). Full: io posso · tu puoi · Lei/lui/lei può · noi possiamo · voi potete · loro possono."
+    },
+    {
+        q: "What does 'tu puoi' mean? (potere)",
+        opts: ["you go", "you drink", "you want", "you can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Tu → <strong>puoi</strong> (potere). E.g. 'Puoi venire?' = Can you come?"
+    },
+    {
+        q: "What does 'Lei può' mean? (potere)",
+        opts: ["she goes", "she drinks", "she wants", "you (formal) / she can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Lei/lui/lei → <strong>può</strong> (potere). Both formal 'you' and third person singular use the same form."
+    },
+    {
+        q: "What does 'noi possiamo' mean? (potere)",
+        opts: ["we go", "we drink", "we want", "we can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Noi → <strong>possiamo</strong> (potere). We can."
+    },
+    {
+        q: "What does 'voi potete' mean? (potere)",
+        opts: ["you (pl.) go", "you (pl.) drink", "you (pl.) want", "you (pl.) can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Voi → <strong>potete</strong> (potere). You (plural) can."
+    },
+    {
+        q: "What does 'loro possono' mean? (potere)",
+        opts: ["they go", "they drink", "they want", "they can"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Loro → <strong>possono</strong> (potere). They can."
+    },
+
+    // ── VERB: ANDARE ────────────────────────────────────────────
+    {
+        q: "What does the verb 'andare' mean?",
+        opts: ["to drink", "to be able to", "to want", "to go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Andare</em> = to go. An irregular verb: vado, vai, va, andiamo, andate, vanno."
+    },
+    {
+        q: "What does 'io vado' mean? (andare)",
+        opts: ["I drink", "I can", "I want", "I go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Io → <strong>vado</strong> (andare). E.g. 'Vado al ristorante' = I'm going to the restaurant."
+    },
+    {
+        q: "What does 'tu vai' mean? (andare)",
+        opts: ["you drink", "you can", "you want", "you go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Tu → <strong>vai</strong> (andare). E.g. 'Dove vai?' = Where are you going?"
+    },
+    {
+        q: "What does 'lui/lei va' mean? (andare)",
+        opts: ["he/she drinks", "he/she can", "he/she wants", "he/she goes"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Lui/lei → <strong>va</strong> (andare). Same root as 'va bene' — it goes well."
+    },
+    {
+        q: "What does 'noi andiamo' mean? (andare)",
+        opts: ["we drink", "we can", "we want", "we go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Noi → <strong>andiamo</strong> (andare). E.g. 'Andiamo al ristorante!' = Let's go to the restaurant!"
+    },
+    {
+        q: "What does 'voi andate' mean? (andare)",
+        opts: ["you (pl.) drink", "you (pl.) can", "you (pl.) want", "you (pl.) go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Voi → <strong>andate</strong> (andare). You (plural) go."
+    },
+    {
+        q: "What does 'loro vanno' mean? (andare)",
+        opts: ["they drink", "they can", "they want", "they go"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Loro → <strong>vanno</strong> (andare). Note the irregular form — not 'andano'."
+    },
+
+    // ── VERB: BERE ──────────────────────────────────────────────
+    {
+        q: "What does the verb 'bere' mean?",
+        opts: ["to go", "to be able to", "to eat", "to drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "<em>Bere</em> = to drink. An irregular verb: bevo, bevi, beve, beviamo, bevete, bevono."
+    },
+    {
+        q: "What does 'io bevo' mean? (bere)",
+        opts: ["I go", "I can", "I eat", "I drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Io → <strong>bevo</strong> (bere). E.g. 'Bevo un caffè' = I drink a coffee."
+    },
+    {
+        q: "What does 'tu bevi' mean? (bere)",
+        opts: ["you go", "you can", "you eat", "you drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Tu → <strong>bevi</strong> (bere). E.g. 'Cosa bevi?' = What are you drinking?"
+    },
+    {
+        q: "What does 'lui/lei beve' mean? (bere)",
+        opts: ["he/she goes", "he/she can", "he/she eats", "he/she drinks"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Lui/lei → <strong>beve</strong> (bere). He/she drinks."
+    },
+    {
+        q: "What does 'noi beviamo' mean? (bere)",
+        opts: ["we go", "we can", "we eat", "we drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Noi → <strong>beviamo</strong> (bere). We drink."
+    },
+    {
+        q: "What does 'voi bevete' mean? (bere)",
+        opts: ["you (pl.) go", "you (pl.) can", "you (pl.) eat", "you (pl.) drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Voi → <strong>bevete</strong> (bere). You (plural) drink."
+    },
+    {
+        q: "What does 'loro bevono' mean? (bere)",
+        opts: ["they go", "they can", "they eat", "they drink"],
+        ans: 3,
+        sheet: "1.4",
+        exp: "Loro → <strong>bevono</strong> (bere). They drink."
+    },
+
+]; // end pool  (231 questions total)
 
 // ============================================================
 //  QUIZ STATE
