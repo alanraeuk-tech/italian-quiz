@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Quiz — v1.2</title>
+    <title>Italian Quiz — v1.3</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -290,7 +290,7 @@
 
     <header>
         <h1>Italian Quiz 🇮🇹</h1>
-        <div class="subtitle">v1.2 · Serena Jones 2026</div>
+        <div class="subtitle">v1.3 · Serena Jones 2026</div>
     </header>
     <div class="flag-strip">
         <span class="flag-green"></span>
@@ -312,9 +312,10 @@
             <label><input type="checkbox" class="sheet-cb" value="1.2" checked><span>1.2</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.3" checked><span>1.3</span></label>
             <label><input type="checkbox" class="sheet-cb" value="1.4" checked><span>1.4</span></label>
+            <label><input type="checkbox" class="sheet-cb" value="1.5" checked><span>1.5</span></label>
         </div>
         <ul>
-            <li>📋 20 random questions drawn from a pool of 231</li>
+            <li>📋 20 random questions drawn from a pool of 281</li>
             <li>🔤 4 multiple-choice options per question</li>
             <li>✅ Explanations given for any wrong answers</li>
             <li>🏆 Score tracked throughout</li>
@@ -2133,7 +2134,407 @@ const pool = [
         exp: "Loro → <strong>bevono</strong> (bere). They drink."
     },
 
-]; // end pool  (231 questions total)
+
+    // ── LESSON 1.5 — VOLERE & POTERE ───────────────────────
+    {
+        q: "How do you say 'What do you want to do?' (formal) in Italian?",
+        opts: ["Cosa vuoi fare?", "Cosa fate?", "Cosa vuole fare?", "Cosa possiamo fare?"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Cosa vuole fare?' uses the formal <em>Lei</em> form of volere. Informally it would be 'Cosa vuoi fare?'"
+    },
+    {
+        q: "Complete: 'Dove ___ fumare?' (Where can I smoke?)",
+        opts: ["voglio", "posso", "vuole", "facciamo"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Dove posso fumare?' — <em>posso</em> is the 'io' form of potere (to be able to / can)."
+    },
+    {
+        q: "Complete: 'Dove ___ mangiare?' (Where can we eat?)",
+        opts: ["possiamo", "potete", "vogliamo", "possono"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "'Dove possiamo mangiare?' — <em>possiamo</em> is the 'noi' form of potere."
+    },
+    {
+        q: "Complete: 'Cosa ___ comprare?' (What do you [plural] want to buy?)",
+        opts: ["volete", "voglio", "vuole", "potete"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "'Cosa volete comprare?' — <em>volete</em> is the 'voi' form of volere."
+    },
+    {
+        q: "Complete: 'Dove vuoi andare ___?' (Where do you want to go on holiday?)",
+        opts: ["in palestra", "in vacanza", "al supermercato", "in albergo"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Dove vuoi andare in vacanza?' — <em>in vacanza</em> means 'on holiday'."
+    },
+    {
+        q: "What is the 'io' form of volere?",
+        opts: ["vogliamo", "vuole", "volete", "voglio"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "Volere: io <strong>voglio</strong> · tu vuoi · Lei/lui/lei vuole · noi vogliamo · voi volete · loro vogliono."
+    },
+    {
+        q: "What is the 'noi' form of volere?",
+        opts: ["volete", "voglio", "vogliono", "vogliamo"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "Noi → <strong>vogliamo</strong>. 'Vogliamo comprare...' = 'We want to buy...'"
+    },
+    {
+        q: "What does 'Puoi fumare qui.' mean?",
+        opts: ["You must not smoke here.", "You can smoke here.", "Where can I smoke?", "We want to smoke here."],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Puoi' is the 'tu' form of potere. 'Puoi fumare qui.' = 'You can smoke here.'"
+    },
+    {
+        q: "What is the 'voi' form of potere?",
+        opts: ["possiamo", "possono", "potete", "può"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "Potere: io posso · tu puoi · Lei/lui/lei può · noi possiamo · voi <strong>potete</strong> · loro possono."
+    },
+    {
+        q: "What does 'Potete mangiare al ristorante.' mean?",
+        opts: ["We can eat at the restaurant.", "You all can eat at the restaurant.", "They want to eat at the restaurant.", "You can eat at the supermarket."],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Potete' is the 'voi' (you plural) form of potere. 'Potete mangiare' = 'You all can eat.'"
+    },
+
+    // ── LESSON 1.5 — LE DATE ────────────────────────────────
+    {
+        q: "How do you say '1st March' in Italian?",
+        opts: ["il uno marzo", "il primo marzo", "uno marzo", "la prima marzo"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "The 1st of a month uses the ordinal 'primo': <strong>il primo marzo</strong>. All other dates use the cardinal number."
+    },
+    {
+        q: "How do you say '2nd October' in Italian?",
+        opts: ["il secondo ottobre", "il due ottobre", "la due ottobre", "due ottobre"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "Dates from the 2nd onwards use cardinal numbers: <strong>il due ottobre</strong>. Only the 1st uses an ordinal."
+    },
+    {
+        q: "How do you say '5th September' in Italian?",
+        opts: ["il quinto settembre", "cinque settembre", "il cinque settembre", "il cinque agosto"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'5th September' = <strong>il cinque settembre</strong>. Remember: cardinal number, not ordinal."
+    },
+    {
+        q: "How do you say '20th May' in Italian?",
+        opts: ["il ventesimo maggio", "il venti maggio", "il venti aprile", "venti maggio"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'20th May' = <strong>il venti maggio</strong>. The article 'il' is always used with the date."
+    },
+    {
+        q: "How would you write 'Monday, 27 August 2007' in Italian?",
+        opts: ["lunedì 27 agosto 2007", "lunedì, 27 agosto 2007", "lunedì il 27 agosto 2007", "il lunedì 27 agosto"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "Full dates are written: <strong>lunedì, 27 agosto 2007</strong> — day name, comma, number, month, year."
+    },
+    {
+        q: "Which rule is different for the 1st of the month compared to all other dates?",
+        opts: ["You add 'la' before it", "You use an ordinal number (primo) instead of a cardinal", "You drop the article", "You use the month name before the number"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "Only the 1st uses the ordinal: <em>il primo marzo</em>. All others use cardinals: il due, il tre, il venti, etc."
+    },
+
+    // ── LESSON 1.5 — IN ALBERGO ─────────────────────────────
+    {
+        q: "What does 'una camera matrimoniale' mean?",
+        opts: ["a single room", "a dormitory", "a double room with twin beds", "a double room with one large bed"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "'Una camera matrimoniale' is a room with one large double bed. 'Una camera doppia' has two separate beds."
+    },
+    {
+        q: "What is the difference between 'una camera doppia' and 'una camera singola'?",
+        opts: ["Doppia is on the ground floor; singola is upstairs", "Doppia has two beds; singola has one", "Doppia includes breakfast; singola does not", "Doppia has a balcony; singola does not"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Camera doppia' = twin/double room (two beds). 'Camera singola' = single room (one bed)."
+    },
+    {
+        q: "What does 'una vista sul mare' mean?",
+        opts: ["a sea view", "a garden view", "a balcony overlooking the sea", "a room by the pool"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "'Vista sul mare' = a view of the sea. 'Sul' = on the / over the."
+    },
+    {
+        q: "What does 'colazione compresa' mean in the context of a hotel booking?",
+        opts: ["dinner included", "lunch included", "breakfast included", "all meals included"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Colazione compresa' = breakfast included. <em>Compresa</em> means 'included'. La colazione = breakfast."
+    },
+    {
+        q: "In the hotel conversation, what does 'Come posso aiutarla?' mean?",
+        opts: ["Do you have a reservation?", "How can I help you?", "What room would you like?", "Can I take your name?"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Come posso aiutarla?' = 'How can I help you?' — a standard formal greeting when answering the phone or at a reception desk."
+    },
+    {
+        q: "What does 'il prossimo fine settimana' mean?",
+        opts: ["last weekend", "the long weekend", "next weekend", "this weekend"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Prossimo' = next. 'Fine settimana' = weekend. So 'il prossimo fine settimana' = next weekend."
+    },
+    {
+        q: "In the hotel dialogue, how does person B ask for the price?",
+        opts: ["Quanto è la camera?", "Mi può dire quanto costa?", "Qual è il prezzo?", "Costa molto?"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Mi può dire quanto costa?' = 'Can you tell me how much it costs?' — a polite way to ask the price."
+    },
+    {
+        q: "What does 'vorrei prenotare' mean?",
+        opts: ["I want to cancel", "I would like to book", "Can I pay now?", "I need to check in"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Vorrei' is the conditional of volere: 'I would like'. 'Prenotare' = to book/reserve. Together: 'I would like to book.'"
+    },
+    {
+        q: "What does 'terzo piano' mean in a hotel?",
+        opts: ["ground floor", "first floor", "second floor", "third floor"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "'Terzo piano' = third floor. In Italy, the ground floor is 'piano terra', so 'terzo piano' is the third floor above ground."
+    },
+    {
+        q: "What is the Italian word for 'balcony'?",
+        opts: ["il giardino", "la vista", "un balcone", "una stanza"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Un balcone' = a balcony. 'Il giardino' = the garden. 'Una stanza' = a room (general term)."
+    },
+
+    // ── LESSON 1.5 — FARE ───────────────────────────────────
+    {
+        q: "What is the 'io' form of fare (to do/make)?",
+        opts: ["fai", "fa", "faccio", "facciamo"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "Fare: io <strong>faccio</strong> · tu fai · Lei/lui/lei fa · noi facciamo · voi fate · loro fanno."
+    },
+    {
+        q: "What is the 'tu' form of fare?",
+        opts: ["fa", "fai", "fate", "fanno"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "Tu → <strong>fai</strong>. Note that fare is irregular — it doesn't follow the standard -are pattern."
+    },
+    {
+        q: "What is the 'noi' form of fare?",
+        opts: ["fate", "fanno", "faccio", "facciamo"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "Noi → <strong>facciamo</strong>. 'Facciamo sport' = 'We do sport.'"
+    },
+    {
+        q: "What is the 'loro' form of fare?",
+        opts: ["fate", "facciamo", "fanno", "fa"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "Loro → <strong>fanno</strong>. This is an irregular form — not 'farano' as you might expect."
+    },
+    {
+        q: "Complete: 'Che cosa ___ nel tempo libero?' (What do you do in your free time? — formal)",
+        opts: ["fai", "fanno", "fa", "fate"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Che cosa fa nel tempo libero?' uses the formal Lei form. Informal would be 'Che cosa fai?'"
+    },
+
+    // ── LESSON 1.5 — TEMPO LIBERO ───────────────────────────
+    {
+        q: "What does 'fare una passeggiata' mean?",
+        opts: ["to go to the gym", "to play sport", "to go for a walk", "to go out with friends"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Fare una passeggiata' = to go for a walk. <em>Passeggiata</em> is also the name for the Italian tradition of an evening stroll."
+    },
+    {
+        q: "What does 'andare in palestra' mean?",
+        opts: ["to go to the park", "to go to the gym", "to play tennis", "to go dancing"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Andare in palestra' = to go to the gym. <em>La palestra</em> = the gym."
+    },
+    {
+        q: "Which of these is NOT a leisure activity listed on the 1.5 worksheet?",
+        opts: ["ballare", "cucinare", "nuotare", "leggere"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Nuotare' (to swim) is not listed in lesson 1.5. The listed activities include ballare, cucinare, leggere, dipingere, fare sport, fare una passeggiata, andare in palestra, and uscire con gli amici."
+    },
+    {
+        q: "What does 'uscire con gli amici' mean?",
+        opts: ["to stay home with family", "to go out with friends", "to travel abroad", "to call friends"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Uscire' = to go out. 'Gli amici' = the friends (male or mixed group). Together: 'to go out with friends.'"
+    },
+    {
+        q: "What does 'dipingere' mean?",
+        opts: ["to cook", "to read", "to paint", "to dance"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Dipingere' = to paint. 'Cucinare' = to cook. 'Leggere' = to read. 'Ballare' = to dance."
+    },
+    {
+        q: "'Giocare a calcio' means...",
+        opts: ["to watch football", "to play tennis", "to play football", "to do sport generally"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Giocare a' = to play (a sport or game). 'Calcio' = football. So 'giocare a calcio' = to play football."
+    },
+    {
+        q: "What does 'tempo libero' mean?",
+        opts: ["working time", "free time / leisure time", "study time", "travel time"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Tempo libero' = free time / leisure time. <em>Libero</em> means free (as in unoccupied, not the cost)."
+    },
+
+    // ── LESSON 1.5 — PIACERE ────────────────────────────────
+    {
+        q: "How do you ask 'Do you like...?' to someone your own age (singular thing)?",
+        opts: ["Le piace?", "Vi piace?", "Ti piace?", "Gli piace?"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Ti piace?' = Do you like? (informal singular). Use 'Le piace?' for formal. 'Vi piace?' for a group."
+    },
+    {
+        q: "How do you ask 'Do you like...?' formally (singular thing)?",
+        opts: ["Ti piace?", "Gli piace?", "Le piace?", "Vi piace?"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Le piace?' is the formal version, using the Lei pronoun. 'Ti piace?' is informal."
+    },
+    {
+        q: "Complete: 'Sì, ___ piace la pizza.' (Yes, I like pizza.)",
+        opts: ["ti", "mi", "gli", "ci"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "'Mi piace' = I like (literally 'it pleases me'). The indirect pronoun changes depending on who likes the thing."
+    },
+    {
+        q: "Complete: 'Sì, ___ piacciono le lasagne.' (Yes, we like lasagne.)",
+        opts: ["mi", "ti", "ci", "vi"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Ci piacciono' = we like (plural thing). Use <em>piacciono</em> when the thing liked is plural."
+    },
+    {
+        q: "Why do you use 'piacciono' instead of 'piace' when saying 'I like apples'?",
+        opts: ["Because apples are a food", "Because the verb agrees with the thing liked, and apples is plural", "Because 'mi' requires piacciono", "It's an irregular exception"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "With piacere, the verb agrees with the subject (the thing liked). 'Le mele' (apples) is plural, so: 'Mi <strong>piacciono</strong> le mele.'"
+    },
+    {
+        q: "What does 'No, non mi piacciono' mean?",
+        opts: ["No, I don't like it", "No, he doesn't like them", "No, I don't like them", "No, we don't like them"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Non mi piacciono' = I don't like them (plural things). 'Non mi piace' would be used for a singular thing."
+    },
+    {
+        q: "What is the indirect pronoun for 'lui' (him) with piacere?",
+        opts: ["le", "ci", "vi", "gli"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "Gli piace/piacciono = he likes. Note: 'gli' is also used for 'loro' (they like) in informal Italian."
+    },
+    {
+        q: "'Vi piacciono i film?' means...",
+        opts: ["Do you (formal) like films?", "Does she like films?", "Do you all like films?", "Do they like films?"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "'Vi' corresponds to 'voi' (you plural). 'Vi piacciono i film?' = 'Do you all like films?'"
+    },
+
+    // ── LESSON 1.5 — LARGE NUMBERS & YEARS ──────────────────
+    {
+        q: "What is 200 in Italian?",
+        opts: ["duecento", "duemila", "duecentocinquanta", "duecenti"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "200 = <strong>duecento</strong>. Hundreds are formed as number + 'cento': trecento (300), quattrocento (400), etc."
+    },
+    {
+        q: "What is 1,000 in Italian?",
+        opts: ["cento", "unmille", "mille", "duemila"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "1,000 = <strong>mille</strong>. Note: 2,000 = <em>duemila</em> — 'mila' is used for multiples of a thousand."
+    },
+    {
+        q: "What is 2,000 in Italian?",
+        opts: ["duemille", "duemila", "duecento", "diecimila"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "2,000 = <strong>duemila</strong>. The plural of mille is <em>mila</em>, not 'mille'. So: tremila (3,000), diecimila (10,000)."
+    },
+    {
+        q: "What is 10,000 in Italian?",
+        opts: ["decimila", "diecimille", "unmilione", "diecimila"],
+        ans: 3,
+        sheet: "1.5",
+        exp: "10,000 = <strong>diecimila</strong>. Dieci = 10, mila = thousands."
+    },
+    {
+        q: "What is 1,000,000 in Italian?",
+        opts: ["un miliardo", "diecimila", "un milione", "centomila"],
+        ans: 2,
+        sheet: "1.5",
+        exp: "1,000,000 = <strong>un milione</strong>. 1,000,000,000 = un miliardo."
+    },
+    {
+        q: "How do you say the year 2026 in Italian?",
+        opts: ["duemilaventisei", "duemilaventisette", "duemila e ventisei", "milleduemilaventisei"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "2026 = <strong>duemilaventisei</strong>. Years are read as a single number: duemila (2000) + ventisei (26)."
+    },
+    {
+        q: "How do you say the year 1900 in Italian?",
+        opts: ["millenove", "millenovecento", "novecentomille", "millecentonove"],
+        ans: 1,
+        sheet: "1.5",
+        exp: "1900 = <strong>millenovecento</strong>. Mille (1000) + novecento (900)."
+    },
+    {
+        q: "How do you say the year 1870 in Italian?",
+        opts: ["milleottocentosettanta", "milleottantasette", "ottocentosettantamille", "millesettecentoottanta"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "1870 = <strong>milleottocentosettanta</strong>. Mille (1000) + ottocento (800) + settanta (70)."
+    },
+    {
+        q: "What is 933 in Italian?",
+        opts: ["novecentotrentatré", "novecentotrenta", "novecentothree", "trecentonove"],
+        ans: 0,
+        sheet: "1.5",
+        exp: "933 = <strong>novecentotrentatré</strong>. Novecento (900) + trenta (30) + tre (3). Note the accent on 'tré' at the end."
+    },
+
+]; // end pool  (281 questions total)
 
 // ============================================================
 //  QUIZ STATE
