@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Quiz — v1.3</title>
+    <title>Italian Quiz — v1.4</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -237,37 +237,54 @@
         .restart-btn:hover { background: #007a3a; }
 
         /* ---- Sheet selector ---- */
-        .sheet-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+        .sheet-select-wrap {
             margin-bottom: 28px;
         }
-        .sheet-selector label {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 20px;
+        .sheet-select-hint {
+            font-size: 0.88rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .sheet-select-hint kbd {
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-size: 0.82rem;
+            font-family: inherit;
+        }
+        .sheet-select {
+            width: 100%;
+            max-width: 280px;
             border: 2px solid #e2e2e2;
             border-radius: 10px;
-            cursor: pointer;
+            padding: 6px;
             font-size: 0.95rem;
+            font-family: inherit;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .sheet-select:focus { border-color: #009246; }
+        .sheet-select option {
+            padding: 7px 10px;
+            border-radius: 6px;
+            margin: 2px 0;
+            cursor: pointer;
+        }
+        .sheet-select-links {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+        .sheet-select-links a {
+            color: #009246;
+            text-decoration: none;
             font-weight: 600;
-            color: #444;
-            transition: border-color 0.15s, background 0.15s;
-            user-select: none;
         }
-        .sheet-selector input[type="checkbox"] { display: none; }
-        .sheet-selector label:has(input:checked) {
-            border-color: #009246;
-            background: #edf7f0;
-            color: #1b5e20;
-        }
-        .sheet-selector label:hover:not(:has(input:checked)) {
-            border-color: #aaa;
-            background: #f8f8f8;
-        }
+        .sheet-select-links a:hover { text-decoration: underline; }
 
         /* shared button style */
         .start-btn {
@@ -305,17 +322,22 @@
     <div class="start-screen" id="startScreen">
         <div class="emoji">🇮🇹</div>
         <h2>Benvenuto! Welcome to your Italian quiz.</h2>
-        <p>Choose which lesson to practise, then start.</p>
-        <div class="sheet-selector">
-            <label><input type="checkbox" id="sheetAll" checked><span>All</span></label>
-            <label><input type="checkbox" class="sheet-cb" value="1.1" checked><span>1.1</span></label>
-            <label><input type="checkbox" class="sheet-cb" value="1.2" checked><span>1.2</span></label>
-            <label><input type="checkbox" class="sheet-cb" value="1.3" checked><span>1.3</span></label>
-            <label><input type="checkbox" class="sheet-cb" value="1.4" checked><span>1.4</span></label>
-            <label><input type="checkbox" class="sheet-cb" value="1.5" checked><span>1.5</span></label>
+        <div class="sheet-select-wrap">
+            <p class="sheet-select-hint">Choose lessons to practise — hold <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) to pick multiple:</p>
+            <select id="sheetSelect" class="sheet-select" multiple size="6">
+                <option value="1.1" selected>Lesson 1.1</option>
+                <option value="1.2" selected>Lesson 1.2</option>
+                <option value="1.3" selected>Lesson 1.3</option>
+                <option value="1.4" selected>Lesson 1.4</option>
+                <option value="1.5" selected>Lesson 1.5</option>
+                <option value="1.6" selected>Lesson 1.6</option>
+            </select>
+            <div class="sheet-select-links">
+                <a href="#" id="selectAllLink">Select all</a> &middot; <a href="#" id="deselectAllLink">Deselect all</a>
+            </div>
         </div>
         <ul>
-            <li>📋 20 random questions drawn from a pool of 281</li>
+            <li>📋 20 random questions drawn from a pool of 339</li>
             <li>🔤 4 multiple-choice options per question</li>
             <li>✅ Explanations given for any wrong answers</li>
             <li>🏆 Score tracked throughout</li>
@@ -866,10 +888,10 @@ const pool = [
     },
     {
         q: "What is the Italian word for 19?",
-        opts: ["diciassette", "diciotto", "venti", "dicianove"],
+        opts: ["diciassette", "diciotto", "venti", "diciannove"],
         ans: 3,
         sheet: "1.1",
-        exp: "19 = <strong>dicianove</strong>. The last 'teen': sedici=16, diciassette=17, diciotto=18, dicianove=19."
+        exp: "19 = <strong>diciannove</strong>. The last 'teen': sedici=16, diciassette=17, diciotto=18, diciannove=19."
     },
     {
         q: "What number is 'trenta'?",
@@ -2534,7 +2556,495 @@ const pool = [
         exp: "933 = <strong>novecentotrentatré</strong>. Novecento (900) + trenta (30) + tre (3). Note the accent on 'tré' at the end."
     },
 
-]; // end pool  (281 questions total)
+
+    // ── LESSON 1.6 — -ARE VERBS: ITALIAN → ENGLISH ──────────────
+    {
+        q: "What does 'amare' mean?",
+        opts: ["to love", "to listen", "to learn", "to play"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Amare</strong> means 'to love'. As in: 'amo l'Italia' (I love Italy)."
+    },
+    {
+        q: "What does 'ascoltare' mean?",
+        opts: ["to listen", "to travel", "to teach", "to dance"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Ascoltare</strong> means 'to listen'. As in: 'ascolto musica' (I listen to music)."
+    },
+    {
+        q: "What does 'ballare' mean?",
+        opts: ["to dance", "to play", "to study", "to travel"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Ballare</strong> means 'to dance'. Related to 'ballet' and 'ballroom'."
+    },
+    {
+        q: "What does 'giocare' mean?",
+        opts: ["to play (a game or sport)", "to play (an instrument)", "to learn", "to work"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Giocare</strong> means 'to play' in the sense of games or sport. Use <em>suonare</em> for playing an instrument."
+    },
+    {
+        q: "What does 'imparare' mean?",
+        opts: ["to learn", "to teach", "to study", "to know"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Imparare</strong> means 'to learn'. Compare with <em>insegnare</em> (to teach) — opposite meanings!"
+    },
+    {
+        q: "What does 'insegnare' mean?",
+        opts: ["to teach", "to learn", "to study", "to know"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Insegnare</strong> means 'to teach'. An <em>insegnante</em> is a teacher."
+    },
+    {
+        q: "What does 'studiare' mean?",
+        opts: ["to study", "to read", "to learn", "to know"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Studiare</strong> means 'to study'. Clearly related to the English word 'study'."
+    },
+    {
+        q: "What does 'suonare' mean?",
+        opts: ["to play (an instrument)", "to play (a game)", "to sing", "to listen"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Suonare</strong> means 'to play an instrument'. For games and sport, use <em>giocare</em> instead."
+    },
+    {
+        q: "What does 'viaggiare' mean?",
+        opts: ["to travel", "to drive", "to arrive", "to leave"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Viaggiare</strong> means 'to travel'. A <em>viaggio</em> is a trip or journey."
+    },
+
+    // ── LESSON 1.6 — ALTRI VERBI: ITALIAN → ENGLISH ──────────────
+    {
+        q: "What does 'corrispondere' mean?",
+        opts: ["to correspond", "to respond", "to call", "to write"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Corrispondere</strong> means 'to correspond' — to exchange letters or messages with someone."
+    },
+    {
+        q: "What does 'leggere' mean?",
+        opts: ["to read", "to write", "to study", "to listen"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Leggere</strong> means 'to read'. A <em>lettore/lettrice</em> is a reader."
+    },
+    {
+        q: "What does 'conoscere' mean?",
+        opts: ["to know / to meet", "to learn", "to understand", "to study"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Conoscere</strong> means 'to know' (a person) or 'to meet'. Used for people and places, not facts."
+    },
+
+    // ── LESSON 1.6 — -ARE VERBS: ENGLISH → ITALIAN ──────────────
+    {
+        q: "How do you say 'to love' in Italian?",
+        opts: ["amare", "ascoltare", "imparare", "giocare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To love' = <strong>amare</strong>. As in: 'amo l'Italia' (I love Italy)."
+    },
+    {
+        q: "How do you say 'to listen' in Italian?",
+        opts: ["ascoltare", "leggere", "guardare", "amare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To listen' = <strong>ascoltare</strong>. As in: 'ascolto musica' (I listen to music)."
+    },
+    {
+        q: "How do you say 'to dance' in Italian?",
+        opts: ["ballare", "suonare", "giocare", "viaggiare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To dance' = <strong>ballare</strong>. Think of 'ballet'."
+    },
+    {
+        q: "How do you say 'to play (a game or sport)' in Italian?",
+        opts: ["giocare", "suonare", "ballare", "imparare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To play (a game/sport)' = <strong>giocare</strong>. Remember: <em>suonare</em> is for instruments."
+    },
+    {
+        q: "How do you say 'to learn' in Italian?",
+        opts: ["imparare", "insegnare", "conoscere", "studiare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To learn' = <strong>imparare</strong>. Don't confuse with <em>insegnare</em> (to teach)."
+    },
+    {
+        q: "How do you say 'to teach' in Italian?",
+        opts: ["insegnare", "imparare", "studiare", "conoscere"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To teach' = <strong>insegnare</strong>. Don't confuse with <em>imparare</em> (to learn)."
+    },
+    {
+        q: "How do you say 'to study' in Italian?",
+        opts: ["studiare", "leggere", "imparare", "conoscere"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To study' = <strong>studiare</strong>. Directly related to the English word 'study'."
+    },
+    {
+        q: "How do you say 'to play (an instrument)' in Italian?",
+        opts: ["suonare", "giocare", "ballare", "ascoltare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To play (an instrument)' = <strong>suonare</strong>. As in: 'suono il pianoforte' (I play the piano)."
+    },
+    {
+        q: "How do you say 'to travel' in Italian?",
+        opts: ["viaggiare", "corrispondere", "giocare", "amare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To travel' = <strong>viaggiare</strong>. A <em>viaggio</em> is a journey or trip."
+    },
+    {
+        q: "How do you say 'to correspond' in Italian?",
+        opts: ["corrispondere", "conoscere", "chiamare", "rispondere"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To correspond' = <strong>corrispondere</strong>. As in: 'Vorrei corrispondere con studenti italiani'."
+    },
+    {
+        q: "How do you say 'to read' in Italian?",
+        opts: ["leggere", "scrivere", "studiare", "ascoltare"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'To read' = <strong>leggere</strong>. As in: 'leggo libri' (I read books)."
+    },
+
+    // ── LESSON 1.6 — CONJUGATION ──────────────────────────────────
+    {
+        q: "How do you say 'I study' in Italian?",
+        opts: ["studio", "studi", "studia", "studiamo"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I study' = <strong>studio</strong>. Regular -are verbs: remove -are, add -o for io."
+    },
+    {
+        q: "How do you say 'she dances' in Italian?",
+        opts: ["balla", "balli", "ballo", "ballano"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'She dances' = <strong>balla</strong>. Regular -are verbs: stem + -a for lui/lei."
+    },
+    {
+        q: "How do you say 'he teaches' in Italian?",
+        opts: ["insegna", "insegno", "insegni", "insegnano"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'He teaches' = <strong>insegna</strong>. Regular -are pattern: stem + -a for lui/lei."
+    },
+    {
+        q: "How do you say 'I travel' in Italian?",
+        opts: ["viaggio", "viaggi", "viaggia", "viaggiamo"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I travel' = <strong>viaggio</strong>. Note: -iare verbs drop the -i before adding -o (stem is viagg-)."
+    },
+    {
+        q: "How do you say 'I play (an instrument)' in Italian?",
+        opts: ["suono", "suoni", "suona", "suoniamo"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I play (instrument)' = <strong>suono</strong>. Regular -are pattern: stem + -o for io."
+    },
+    {
+        q: "How do you say 'she listens' in Italian?",
+        opts: ["ascolta", "ascolto", "ascolti", "ascoltano"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'She listens' = <strong>ascolta</strong>. Regular -are pattern: stem + -a for lui/lei."
+    },
+    {
+        q: "How do you say 'I learn' in Italian?",
+        opts: ["imparo", "impari", "impara", "impariamo"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I learn' = <strong>imparo</strong>. Regular -are pattern: stem + -o for io."
+    },
+    {
+        q: "How do you say 'she loves' in Italian?",
+        opts: ["ama", "amo", "ami", "amano"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'She loves' = <strong>ama</strong>. Regular -are pattern: stem + -a for lui/lei."
+    },
+
+    // ── LESSON 1.6 — PROFESSIONS VOCABULARY ──────────────────────────
+    {
+        q: "What does 'impiegata' mean?",
+        opts: ["office worker / employee", "teacher", "student", "doctor"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Impiegata</strong> means 'office worker' or 'employee' (female form). The male form is <em>impiegato</em>."
+    },
+    {
+        q: "What does 'insegnante' mean?",
+        opts: ["teacher", "student", "office worker", "manager"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Insegnante</strong> means 'teacher'. It comes from <em>insegnare</em> (to teach) and is the same for male and female."
+    },
+    {
+        q: "What does 'studentessa' mean?",
+        opts: ["female student", "female teacher", "female office worker", "female doctor"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Studentessa</strong> means 'female student'. The male form is <em>studente</em>."
+    },
+    {
+        q: "How do you say 'teacher' in Italian?",
+        opts: ["insegnante", "impiegato", "studente", "professore"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Teacher' = <strong>insegnante</strong>. It's the same for male and female — only the article changes: <em>il/la insegnante</em>."
+    },
+    {
+        q: "How do you say 'female student' in Italian?",
+        opts: ["studentessa", "impiegata", "insegnante", "ragazza"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Female student' = <strong>studentessa</strong>. The male form is <em>studente</em>."
+    },
+    {
+        q: "How do you say 'office worker' in Italian?",
+        opts: ["impiegato/a", "insegnante", "studente", "lavoratore"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Office worker' = <strong>impiegato</strong> (m) or <strong>impiegata</strong> (f)."
+    },
+
+    // ── LESSON 1.6 — FREE TIME: ITALIAN → ENGLISH ───────────────────
+    {
+        q: "What does 'nel tempo libero' mean?",
+        opts: ["in my free time", "at work", "in the morning", "at the weekend"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Nel tempo libero</strong> means 'in my free time'. Tempo = time; libero = free."
+    },
+    {
+        q: "What does 'faccio sport' mean?",
+        opts: ["I do sport", "I play music", "I watch sport", "I study sport"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Faccio sport</strong> means 'I do sport'. Faccio = I do/make (from <em>fare</em>)."
+    },
+    {
+        q: "What does 'leggo libri' mean?",
+        opts: ["I read books", "I buy books", "I write books", "I borrow books"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Leggo libri</strong> means 'I read books'. Leggo = I read (from <em>leggere</em>); libri = books."
+    },
+    {
+        q: "What does 'ascolto musica' mean?",
+        opts: ["I listen to music", "I play music", "I love music", "I study music"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Ascolto musica</strong> means 'I listen to music'. Ascolto = I listen (from <em>ascoltare</em>)."
+    },
+    {
+        q: "What does 'vado in piscina' mean?",
+        opts: ["I go to the swimming pool", "I go to the gym", "I go to the cinema", "I go for a walk"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Vado in piscina</strong> means 'I go to the swimming pool'. Vado = I go; piscina = swimming pool."
+    },
+    {
+        q: "What does 'gioco a calcio' mean?",
+        opts: ["I play football", "I watch football", "I love football", "I play tennis"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Gioco a calcio</strong> means 'I play football'. Gioco = I play (from <em>giocare</em>); calcio = football."
+    },
+    {
+        q: "What does 'faccio passeggiate' mean?",
+        opts: ["I go for walks", "I do sport", "I go jogging", "I ride a bike"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Faccio passeggiate</strong> means 'I go for walks'. Passeggiate = walks/strolls."
+    },
+    {
+        q: "What does 'andare al cinema' mean?",
+        opts: ["to go to the cinema", "to go to the theatre", "to go to a concert", "to go to a restaurant"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Andare al cinema</strong> means 'to go to the cinema'. Andare = to go; cinema = cinema."
+    },
+
+    // ── LESSON 1.6 — PROFILE PHRASES: ITALIAN → ENGLISH ─────────────
+    {
+        q: "What does 'perché' mean?",
+        opts: ["because / why", "where", "when", "how"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Perché</strong> means both 'because' and 'why' depending on context. 'Studio italiano perché...' = I study Italian because..."
+    },
+    {
+        q: "What does 'lavoro in un albergo' mean?",
+        opts: ["I work in a hotel", "I live in a hotel", "I stay in a hotel", "I study in a hotel"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Lavoro in un albergo</strong> means 'I work in a hotel'. Lavoro = I work; albergo = hotel."
+    },
+    {
+        q: "What does 'da sei mesi' mean?",
+        opts: ["for six months", "in six months", "six months ago", "since last year"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Da sei mesi</strong> means 'for six months'. Da = for (duration from the past to now); sei mesi = six months."
+    },
+    {
+        q: "What does 'da poco tempo' mean?",
+        opts: ["for a short time", "for a long time", "a short time ago", "in a little while"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Da poco tempo</strong> means 'for a short time'. Da = for (duration); poco tempo = a short time/not long."
+    },
+    {
+        q: "What does 'la cucina italiana' mean?",
+        opts: ["Italian cuisine / cooking", "the Italian kitchen", "Italian culture", "Italian music"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>La cucina italiana</strong> means 'Italian cuisine' or 'Italian cooking'. Cucina also literally means 'kitchen'."
+    },
+    {
+        q: "What does 'Vorrei corrispondere' mean?",
+        opts: ["I would like to correspond", "I would like to travel", "I would like to study", "I would like to meet"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Vorrei corrispondere</strong> means 'I would like to correspond'. Vorrei = I would like (conditional of <em>volere</em>)."
+    },
+    {
+        q: "What does 'suono il basso' mean?",
+        opts: ["I play the bass", "I play the guitar", "I play the piano", "I listen to bass music"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Suono il basso</strong> means 'I play the bass'. Suono = I play (from <em>suonare</em>); il basso = the bass guitar."
+    },
+    {
+        q: "What does 'uno strumento' mean?",
+        opts: ["an instrument", "a song", "a concert", "a practice"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "<strong>Uno strumento</strong> means 'an instrument'. As in: 'Chi suona uno strumento?' — Who plays an instrument?"
+    },
+
+    // ── LESSON 1.6 — FREE TIME: ENGLISH → ITALIAN ───────────────────
+    {
+        q: "How do you say 'in my free time' in Italian?",
+        opts: ["nel tempo libero", "nel mio tempo", "nel fine settimana", "al tempo libero"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'In my free time' = <strong>nel tempo libero</strong>. Nel = in the; tempo libero = free time."
+    },
+    {
+        q: "How do you say 'I play football' in Italian?",
+        opts: ["gioco a calcio", "faccio calcio", "suono calcio", "ballo calcio"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I play football' = <strong>gioco a calcio</strong>. Note: giocare takes the preposition <em>a</em> before the sport."
+    },
+    {
+        q: "How do you say 'I go to the swimming pool' in Italian?",
+        opts: ["vado in piscina", "vado alla piscina", "faccio piscina", "gioco in piscina"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I go to the swimming pool' = <strong>vado in piscina</strong>. Vado = I go (from <em>andare</em>)."
+    },
+    {
+        q: "How do you say 'I go for walks' in Italian?",
+        opts: ["faccio passeggiate", "vado passeggiate", "gioco passeggiate", "faccio camminate"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I go for walks' = <strong>faccio passeggiate</strong>. Faccio (I do/make) + passeggiate (walks)."
+    },
+    {
+        q: "How do you say 'I listen to music' in Italian?",
+        opts: ["ascolto musica", "sento musica", "guardo musica", "faccio musica"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I listen to music' = <strong>ascolto musica</strong>. Ascolto = I listen (from <em>ascoltare</em>)."
+    },
+    {
+        q: "How do you say 'I read books' in Italian?",
+        opts: ["leggo libri", "studio libri", "compro libri", "prendo libri"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'I read books' = <strong>leggo libri</strong>. Leggo = I read (from <em>leggere</em>); libri = books."
+    },
+    {
+        q: "How do you say 'for six months' in Italian?",
+        opts: ["da sei mesi", "per sei mesi", "sei mesi fa", "in sei mesi"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'For six months' (ongoing from the past) = <strong>da sei mesi</strong>. Use <em>da</em>, not <em>per</em>, for durations continuing into the present."
+    },
+    {
+        q: "How do you say 'because' in Italian?",
+        opts: ["perché", "quando", "dove", "come"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Because' = <strong>perché</strong>. The same word also means 'why'. As in: 'Studio italiano perché amo l'Italia'."
+    },
+
+    // ── LESSON 1.6 — CONVERSAZIONE ──────────────────────────────────
+    {
+        q: "How do you ask 'Who works?' in Italian?",
+        opts: ["Chi lavora?", "Chi studia?", "Chi impara?", "Chi insegna?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Who works?' = <strong>Chi lavora?</strong> Lavorare means 'to work'; lavora is the lui/lei form."
+    },
+    {
+        q: "How do you ask 'Who does sport?' in Italian?",
+        opts: ["Chi fa sport?", "Chi gioca sport?", "Chi studia sport?", "Chi ama sport?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Who does sport?' = <strong>Chi fa sport?</strong> Fare = to do/make; fa = he/she does."
+    },
+    {
+        q: "How do you ask 'Who loves music?' in Italian?",
+        opts: ["Chi ama la musica?", "Chi ascolta la musica?", "Chi suona la musica?", "Chi fa la musica?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Who loves music?' = <strong>Chi ama la musica?</strong> Amare (to love); ama = he/she loves."
+    },
+    {
+        q: "How do you ask 'Who plays an instrument?' in Italian?",
+        opts: ["Chi suona uno strumento?", "Chi gioca uno strumento?", "Chi usa uno strumento?", "Chi fa uno strumento?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Who plays an instrument?' = <strong>Chi suona uno strumento?</strong> Suonare is used for playing instruments."
+    },
+    {
+        q: "How do you ask 'Who studies Italian for work?' in Italian?",
+        opts: ["Chi studia l'italiano per lavoro?", "Chi impara l'italiano per lavoro?", "Chi usa l'italiano per lavoro?", "Chi parla l'italiano per lavoro?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Who studies Italian for work?' = <strong>Chi studia l'italiano per lavoro?</strong> Per = for; lavoro = work."
+    },
+    {
+        q: "What does 'Chi studia l'italiano da poco tempo?' mean?",
+        opts: ["Who has been studying Italian for a short time?", "Who studies Italian in their free time?", "Who studies Italian for work?", "Who wants to study Italian?"],
+        ans: 0,
+        sheet: "1.6",
+        exp: "'Chi studia l'italiano da poco tempo?' = <strong>Who has been studying Italian for a short time?</strong> Da = for (duration); poco tempo = a short time."
+    },
+
+]; // end pool  (339 questions total)
 
 // ============================================================
 //  QUIZ STATE
@@ -2569,30 +3079,34 @@ function prepareQuestion(q) {
 }
 
 // ── Sheet selector wiring ────────────────────────────────────
-const sheetAllCb  = document.getElementById('sheetAll');
-const sheetCbs    = () => [...document.querySelectorAll('.sheet-cb')];
+const sheetSelect = document.getElementById('sheetSelect');
+const lessonOpts  = () => [...sheetSelect.options];
 
 function updateStartBtn() {
-    const anyChecked = sheetCbs().some(cb => cb.checked);
+    const anySelected = lessonOpts().some(o => o.selected);
     const btn = document.querySelector('.start-btn');
-    btn.disabled = !anyChecked;
-    btn.style.opacity = anyChecked ? '' : '0.4';
-    btn.style.cursor  = anyChecked ? '' : 'not-allowed';
+    btn.disabled = !anySelected;
+    btn.style.opacity = anySelected ? '' : '0.4';
+    btn.style.cursor  = anySelected ? '' : 'not-allowed';
 }
 
-sheetAllCb.addEventListener('change', () => {
-    sheetCbs().forEach(cb => cb.checked = sheetAllCb.checked);
+sheetSelect.addEventListener('change', updateStartBtn);
+
+document.getElementById('selectAllLink').addEventListener('click', e => {
+    e.preventDefault();
+    lessonOpts().forEach(o => o.selected = true);
     updateStartBtn();
 });
-sheetCbs().forEach(cb => cb.addEventListener('change', () => {
-    sheetAllCb.checked = sheetCbs().every(cb => cb.checked);
+document.getElementById('deselectAllLink').addEventListener('click', e => {
+    e.preventDefault();
+    lessonOpts().forEach(o => o.selected = false);
     updateStartBtn();
-}));
+});
 
 // ── Start ────────────────────────────────────────────────────
 function startQuiz() {
-    const checked = sheetCbs().filter(cb => cb.checked).map(cb => cb.value);
-    const active  = checked.length === sheetCbs().length
+    const checked = lessonOpts().filter(o => o.selected).map(o => o.value);
+    const active  = checked.length === lessonOpts().length
                     ? pool
                     : pool.filter(q => checked.includes(q.sheet));
     questions = shuffle(active).slice(0, TOTAL).map(prepareQuestion);
