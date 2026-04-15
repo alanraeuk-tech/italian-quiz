@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Quiz — v1.4</title>
+    <title>Italian Quiz — v1.6</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -307,7 +307,7 @@
 
     <header>
         <h1>Italian Quiz 🇮🇹</h1>
-        <div class="subtitle">v1.4 · Serena Jones 2026</div>
+        <div class="subtitle">v1.6 · Serena Jones 2026</div>
     </header>
     <div class="flag-strip">
         <span class="flag-green"></span>
@@ -324,20 +324,22 @@
         <h2>Benvenuto! Welcome to your Italian quiz.</h2>
         <div class="sheet-select-wrap">
             <p class="sheet-select-hint">Choose lessons to practise — hold <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) to pick multiple:</p>
-            <select id="sheetSelect" class="sheet-select" multiple size="6">
+            <select id="sheetSelect" class="sheet-select" multiple size="8">
                 <option value="1.1" selected>Lesson 1.1</option>
                 <option value="1.2" selected>Lesson 1.2</option>
                 <option value="1.3" selected>Lesson 1.3</option>
                 <option value="1.4" selected>Lesson 1.4</option>
                 <option value="1.5" selected>Lesson 1.5</option>
                 <option value="1.6" selected>Lesson 1.6</option>
+                <option value="1.7" selected>Lesson 1.7</option>
+                <option value="1.8" selected>Lesson 1.8</option>
             </select>
             <div class="sheet-select-links">
                 <a href="#" id="selectAllLink">Select all</a> &middot; <a href="#" id="deselectAllLink">Deselect all</a>
             </div>
         </div>
         <ul>
-            <li>📋 20 random questions drawn from a pool of 339</li>
+            <li>📋 20 random questions drawn from a pool of 463</li>
             <li>🔤 4 multiple-choice options per question</li>
             <li>✅ Explanations given for any wrong answers</li>
             <li>🏆 Score tracked throughout</li>
@@ -3044,7 +3046,790 @@ const pool = [
         exp: "'Chi studia l'italiano da poco tempo?' = <strong>Who has been studying Italian for a short time?</strong> Da = for (duration); poco tempo = a short time."
     },
 
-]; // end pool  (339 questions total)
+
+    // ── LESSON 1.7 — SAPERE (TO KNOW A FACT) ────────────────────────────
+    {
+        q: "What is the 'io' (I) form of sapere (to know)?",
+        opts: ["sai", "sa", "sappiamo", "so"],
+        ans: 3, sheet: "1.7",
+        exp: "Io → <strong>so</strong>. Full: io so · tu sai · lui/lei sa · noi sappiamo · voi sapete · loro sanno."
+    },
+    {
+        q: "What is the 'tu' (you, informal) form of sapere?",
+        opts: ["so", "sa", "sapete", "sai"],
+        ans: 3, sheet: "1.7",
+        exp: "Tu → <strong>sai</strong>. 'Sai che ore sono?' = Do you know what time it is?"
+    },
+    {
+        q: "What is the 'Lei/lui/lei' form of sapere?",
+        opts: ["so", "sai", "sappiamo", "sa"],
+        ans: 3, sheet: "1.7",
+        exp: "Lui/lei/Lei → <strong>sa</strong>. 'Scusi, sa dov'è...?' = Excuse me, do you know where...? (formal)"
+    },
+    {
+        q: "What is the 'noi' form of sapere?",
+        opts: ["sapete", "sanno", "sa", "sappiamo"],
+        ans: 3, sheet: "1.7",
+        exp: "Noi → <strong>sappiamo</strong>. 'Non sappiamo' = we don't know."
+    },
+    {
+        q: "What is the 'voi' form of sapere?",
+        opts: ["sappiamo", "sanno", "sa", "sapete"],
+        ans: 3, sheet: "1.7",
+        exp: "Voi → <strong>sapete</strong>. 'Scusate, sapete dov'è la stazione?' = Excuse me (pl), do you know where the station is?"
+    },
+    {
+        q: "What is the 'loro' form of sapere?",
+        opts: ["sapete", "sappiamo", "sa", "sanno"],
+        ans: 3, sheet: "1.7",
+        exp: "Loro → <strong>sanno</strong>. 'Non sanno' = they don't know."
+    },
+    {
+        q: "What does 'Fammi sapere' mean?",
+        opts: ["I don't know", "You never know", "Tell me more", "Let me know"],
+        ans: 3, sheet: "1.7",
+        exp: "'Fammi sapere' = Let me know. Literally 'make me know'. A very common Italian phrase."
+    },
+    {
+        q: "What does 'Non si sa mai' mean?",
+        opts: ["I never know", "We don't know", "It is unknown", "You never know"],
+        ans: 3, sheet: "1.7",
+        exp: "'Non si sa mai' = You never know. A common idiomatic expression."
+    },
+    {
+        q: "What does 'Non lo so' mean?",
+        opts: ["He doesn't know it", "We don't know", "Do you know?", "I don't know"],
+        ans: 3, sheet: "1.7",
+        exp: "'Non lo so' = I don't know (it). <em>Lo</em> is a direct object pronoun meaning 'it'."
+    },
+    {
+        q: "What does 'Lo so' mean?",
+        opts: ["He knows it", "We know it", "Do you know?", "I know (it)"],
+        ans: 3, sheet: "1.7",
+        exp: "'Lo so' = I know (it). Compare with 'Non lo so' = I don't know."
+    },
+    {
+        q: "Complete: 'Amica, ___ che ore sono?' (asking a friend what time it is)",
+        opts: ["sa", "sapete", "sappiamo", "sai"],
+        ans: 3, sheet: "1.7",
+        exp: "Tu form → <strong>sai</strong>. 'Amica, sai che ore sono?' = Do you know what time it is, friend?"
+    },
+    {
+        q: "Complete: 'Scusate, ___ dov'è la stazione?' (addressing a group)",
+        opts: ["sai", "sa", "sanno", "sapete"],
+        ans: 3, sheet: "1.7",
+        exp: "Voi form → <strong>sapete</strong>. 'Scusate, sapete dov'è la stazione?' = Excuse me (pl), do you know where the station is?"
+    },
+    {
+        q: "Complete: 'Scusi, ___ dov'è l'ufficio postale?' (politely to a stranger)",
+        opts: ["sai", "sapete", "sappiamo", "sa"],
+        ans: 3, sheet: "1.7",
+        exp: "Formal Lei form → <strong>sa</strong>. 'Scusi, sa dov'è...?' = Excuse me, do you know where...? (formal)"
+    },
+    {
+        q: "What does sapere + infinitive mean?",
+        opts: ["to want to do something", "to start doing something", "to need to do something", "to know how to do something"],
+        ans: 3, sheet: "1.7",
+        exp: "Sapere + infinitive = to know how to do something. 'Tu sai suonare la chitarra' = You know how to play the guitar."
+    },
+    {
+        q: "What does 'Tu sai suonare la chitarra molto bene' mean?",
+        opts: ["You want to play the guitar very well", "Can you play the guitar?", "I know how to play guitar very well", "You know how to play the guitar very well"],
+        ans: 3, sheet: "1.7",
+        exp: "'Sai suonare la chitarra molto bene' = You know how to play the guitar very well. Sapere + infinitive = know how to."
+    },
+    {
+        q: "What does 'Io so dove abita Marco' mean?",
+        opts: ["I want to know where Marco lives", "I don't know where Marco lives", "Marco lives here", "I know where Marco lives"],
+        ans: 3, sheet: "1.7",
+        exp: "'So dove abita Marco' = I know where Marco lives. Sapere is used for factual knowledge."
+    },
+
+    // ── LESSON 1.7 — CONOSCERE (TO KNOW A PERSON/PLACE) ────────────────
+    {
+        q: "What is the 'io' form of conoscere?",
+        opts: ["conosci", "conosce", "conoscete", "conosco"],
+        ans: 3, sheet: "1.7",
+        exp: "Io → <strong>conosco</strong>. Full: io conosco · tu conosci · lui/lei conosce · noi conosciamo · voi conoscete · loro conoscono."
+    },
+    {
+        q: "What is the 'tu' form of conoscere?",
+        opts: ["conosco", "conosce", "conosciamo", "conosci"],
+        ans: 3, sheet: "1.7",
+        exp: "Tu → <strong>conosci</strong>. 'Conosci quell'insegnante?' = Do you know that teacher?"
+    },
+    {
+        q: "What is the 'lui/lei' form of conoscere?",
+        opts: ["conosco", "conosci", "conoscono", "conosce"],
+        ans: 3, sheet: "1.7",
+        exp: "Lui/lei → <strong>conosce</strong>. 'Lei conosce il mio amico?' = Do you (formal) know my friend?"
+    },
+    {
+        q: "What is the 'noi' form of conoscere?",
+        opts: ["conoscete", "conoscono", "conosce", "conosciamo"],
+        ans: 3, sheet: "1.7",
+        exp: "Noi → <strong>conosciamo</strong>. 'Conosciamo bene il museo' = We know the museum well."
+    },
+    {
+        q: "What is the 'voi' form of conoscere?",
+        opts: ["conosciamo", "conoscono", "conosce", "conoscete"],
+        ans: 3, sheet: "1.7",
+        exp: "Voi → <strong>conoscete</strong>. 'Conoscete un buon ristorante?' = Do you (pl) know a good restaurant?"
+    },
+    {
+        q: "What is the 'loro' form of conoscere?",
+        opts: ["conoscete", "conosciamo", "conosce", "conoscono"],
+        ans: 3, sheet: "1.7",
+        exp: "Loro → <strong>conoscono</strong>. 'Non conoscono ancora il mio cane' = They don't know my dog yet."
+    },
+    {
+        q: "What does 'Piacere di conoscerla' mean?",
+        opts: ["Nice to see you again", "I already know you", "Do you know me?", "Nice to meet you (formal)"],
+        ans: 3, sheet: "1.7",
+        exp: "'Piacere di conoscerla' = Nice to meet you (formal). The -la ending is the formal object pronoun."
+    },
+    {
+        q: "What does 'Ci conosciamo?' mean?",
+        opts: ["Can we meet?", "Nice to meet you", "Do they know each other?", "Do we know each other?"],
+        ans: 3, sheet: "1.7",
+        exp: "'Ci conosciamo?' = Do we know each other? <em>Ci</em> is a reflexive/reciprocal pronoun meaning 'each other'."
+    },
+    {
+        q: "Complete: 'Voi ___ un buon ristorante italiano?' (using conoscere)",
+        opts: ["conoscono", "conosci", "conosco", "conoscete"],
+        ans: 3, sheet: "1.7",
+        exp: "Voi → <strong>conoscete</strong>. 'Conoscete un buon ristorante?' = Do you (plural) know a good Italian restaurant?"
+    },
+    {
+        q: "Complete: 'I tuoi genitori ___ il tuo nuovo ragazzo?' (using conoscere)",
+        opts: ["conoscete", "conosci", "conosco", "conoscono"],
+        ans: 3, sheet: "1.7",
+        exp: "Loro → <strong>conoscono</strong>. 'I tuoi genitori conoscono il tuo nuovo ragazzo?' = Do your parents know your new boyfriend?"
+    },
+    {
+        q: "Complete: 'Amico, ___ quell'insegnante scozzese?' (to a friend, using conoscere)",
+        opts: ["conoscete", "conoscono", "conosco", "conosci"],
+        ans: 3, sheet: "1.7",
+        exp: "Tu → <strong>conosci</strong>. 'Conosci quell'insegnante scozzese?' = Do you know that Scottish teacher?"
+    },
+    {
+        q: "When do you use sapere vs conoscere?",
+        opts: ["Sapere for people, conoscere for facts", "Sapere for places, conoscere for verbs", "They mean the same thing", "Sapere for facts/abilities, conoscere for people/places"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Sapere</strong> = to know a fact or how to do something. <strong>Conoscere</strong> = to know a person or a place."
+    },
+    {
+        q: "Which verb do you use to say 'I know Marco'?",
+        opts: ["sapere: 'so Marco'", "either one is fine", "volere: 'voglio Marco'", "conoscere: 'conosco Marco'"],
+        ans: 3, sheet: "1.7",
+        exp: "Use <strong>conoscere</strong> for knowing people: 'Conosco Marco'. Sapere is for facts and abilities."
+    },
+    {
+        q: "Which verb do you use to say 'I know where Marco lives'?",
+        opts: ["conoscere: 'conosco dove abita'", "either one is fine", "avere: 'ho dove abita'", "sapere: 'so dove abita'"],
+        ans: 3, sheet: "1.7",
+        exp: "Use <strong>sapere</strong> for knowing facts: 'So dove abita Marco'. Conoscere is for people and places."
+    },
+
+    // ── LESSON 1.7 — FARE LA SPESA (GROCERY SHOPPING) ──────────────────
+    {
+        q: "What does 'fare la spesa' mean?",
+        opts: ["to go clothes shopping", "to spend money", "to pay the bill", "to do the grocery shopping"],
+        ans: 3, sheet: "1.7",
+        exp: "'Fare la spesa' = to do the grocery shopping. 'Andare a fare shopping' = to go shopping (clothes/general)."
+    },
+    {
+        q: "What is the Italian word for 'mushrooms'?",
+        opts: ["pomodori", "cipolle", "patate", "funghi"],
+        ans: 3, sheet: "1.7",
+        exp: "Mushrooms = <strong>funghi</strong> (plural of fungo)."
+    },
+    {
+        q: "What is the Italian word for 'potatoes'?",
+        opts: ["funghi", "cipolle", "pomodori", "patate"],
+        ans: 3, sheet: "1.7",
+        exp: "Potatoes = <strong>patate</strong> (plural of patata, feminine)."
+    },
+    {
+        q: "What is the Italian word for 'onions'?",
+        opts: ["patate", "funghi", "pomodori", "cipolle"],
+        ans: 3, sheet: "1.7",
+        exp: "Onions = <strong>cipolle</strong> (plural of cipolla, feminine)."
+    },
+    {
+        q: "What is the Italian word for 'grapes'?",
+        opts: ["pomodori", "mele", "cipolle", "uva"],
+        ans: 3, sheet: "1.7",
+        exp: "Grapes = <strong>uva</strong> (feminine, collective noun). Usually used without a plural form in Italian."
+    },
+    {
+        q: "What is the Italian word for 'tomatoes'?",
+        opts: ["patate", "funghi", "cipolle", "pomodori"],
+        ans: 3, sheet: "1.7",
+        exp: "Tomatoes = <strong>pomodori</strong> (plural of pomodoro, masculine). Literally 'golden apple'."
+    },
+    {
+        q: "What is the Italian word for 'cured ham'?",
+        opts: ["salame", "bistecche", "riso", "prosciutto"],
+        ans: 3, sheet: "1.7",
+        exp: "Ham = <strong>prosciutto</strong>. Prosciutto crudo is cured, prosciutto cotto is cooked ham."
+    },
+    {
+        q: "What is the Italian word for 'salami'?",
+        opts: ["prosciutto", "bistecche", "riso", "salame"],
+        ans: 3, sheet: "1.7",
+        exp: "Salami = <strong>salame</strong>. In Italian, 'salami' is already the plural of salame."
+    },
+    {
+        q: "What is the Italian word for 'steaks'?",
+        opts: ["salame", "prosciutto", "patate", "bistecche"],
+        ans: 3, sheet: "1.7",
+        exp: "Steaks = <strong>bistecche</strong> (plural of bistecca, feminine)."
+    },
+    {
+        q: "What does 'un chilo di...' mean?",
+        opts: ["a packet of...", "a litre of...", "a bottle of...", "a kilo of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Un chilo di...' = a kilo of... Used for weight-based quantities when shopping."
+    },
+    {
+        q: "What does 'due etti di...' mean?",
+        opts: ["two litres of...", "two kilos of...", "two packets of...", "two hundred grams of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Due etti di...' = two hundred grams of... An <em>etto</em> = 100 grams."
+    },
+    {
+        q: "What does 'un pacco di...' mean?",
+        opts: ["a kilo of...", "a bottle of...", "a litre of...", "a packet of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Un pacco di...' = a packet of... e.g. 'un pacco di pasta' = a packet of pasta."
+    },
+    {
+        q: "What does 'un litro di...' mean?",
+        opts: ["a kilo of...", "a packet of...", "a bottle of...", "a litre of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Un litro di...' = a litre of... e.g. 'un litro di latte' = a litre of milk."
+    },
+    {
+        q: "What does 'una bottiglia di...' mean?",
+        opts: ["a kilo of...", "a litre of...", "a packet of...", "a bottle of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Una bottiglia di...' = a bottle of... e.g. 'una bottiglia di acqua minerale' = a bottle of mineral water."
+    },
+    {
+        q: "What does 'mezzo chilo di...' mean?",
+        opts: ["a quarter kilo of...", "a kilo of...", "two hundred grams of...", "half a kilo of..."],
+        ans: 3, sheet: "1.7",
+        exp: "'Mezzo chilo di...' = half a kilo of... <em>Mezzo</em> = half."
+    },
+    {
+        q: "What quantity phrase would you typically use when buying deli items like prosciutto or salame?",
+        opts: ["un pacco di", "una bottiglia di", "un litro di", "due etti di"],
+        ans: 3, sheet: "1.7",
+        exp: "'Due etti di...' (200g of...) is typical for deli counter items like salame and prosciutto. An etto = 100g."
+    },
+
+    // ── LESSON 1.7 — PARTITIVE ARTICLES ────────────────────────────────
+    {
+        q: "What partitive article goes with 'formaggio' (cheese — masculine singular, starts with consonant)?",
+        opts: ["dello", "dell'", "della", "del"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Del</strong> formaggio = some cheese. Del = di + il, for masculine singular nouns starting with a consonant."
+    },
+    {
+        q: "What partitive article goes with 'carne' (meat — feminine singular, starts with consonant)?",
+        opts: ["del", "degli", "dell'", "della"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Della</strong> carne = some meat. Della = di + la, for feminine singular nouns starting with a consonant."
+    },
+    {
+        q: "What partitive article goes with 'aglio' (garlic — masculine singular, starts with vowel)?",
+        opts: ["del", "dello", "della", "dell'"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Dell'</strong>aglio = some garlic. Dell' = di + l', used before any singular noun starting with a vowel."
+    },
+    {
+        q: "What partitive article goes with 'yogurt' (masculine singular — treated like s+consonant)?",
+        opts: ["del", "dell'", "della", "dello"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Dello</strong> yogurt = some yogurt. Dello = di + lo, for masculine nouns starting with z, y, s+consonant, gn."
+    },
+    {
+        q: "What partitive article goes with 'pomodori' (tomatoes — masculine plural, starts with consonant)?",
+        opts: ["degli", "delle", "dell'", "dei"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Dei</strong> pomodori = some tomatoes. Dei = di + i, for masculine plural nouns starting with a consonant."
+    },
+    {
+        q: "What partitive article goes with 'amici' (friends — masculine plural, starts with vowel)?",
+        opts: ["dei", "delle", "dell'", "degli"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Degli</strong> amici = some friends. Degli = di + gli, for masculine plural nouns starting with a vowel or z/s+cons."
+    },
+    {
+        q: "What partitive article goes with 'mele' (apples — feminine plural)?",
+        opts: ["dei", "degli", "dell'", "delle"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Delle</strong> mele = some apples. Delle = di + le, used for all feminine plural nouns."
+    },
+    {
+        q: "What partitive article goes with 'uva' (grapes — feminine singular, starts with vowel)?",
+        opts: ["del", "dello", "della", "dell'"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Dell'</strong>uva = some grapes. Dell' = di + l', for any singular noun (masc or fem) starting with a vowel."
+    },
+    {
+        q: "What partitive article goes with 'arance' (oranges — feminine plural)?",
+        opts: ["dei", "degli", "dell'", "delle"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Delle</strong> arance = some oranges. Delle = di + le, used for all feminine plural nouns."
+    },
+    {
+        q: "Which partitive article goes with 'pane' (bread — masculine singular, starts with consonant)?",
+        opts: ["dello", "della", "dell'", "del"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Del</strong> pane = some bread. Del = di + il, for masculine singular nouns starting with a consonant."
+    },
+    {
+        q: "Complete: 'Per colazione, mangio sempre ___ pane tostato con il miele.'",
+        opts: ["dello", "della", "dell'", "del"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Del</strong> pane tostato = some toasted bread. Pane is masculine singular starting with consonant → del."
+    },
+    {
+        q: "Complete: 'Vorrei comprare ___ pasta fresca al mercato.' (pasta = feminine singular)",
+        opts: ["dello", "dei", "dell'", "della"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Della</strong> pasta fresca = some fresh pasta. Pasta is feminine singular starting with consonant → della."
+    },
+    {
+        q: "Complete: 'Aggiungi ___ zenzero alla zuppa.' (zenzero = ginger, masculine singular, starts with z)",
+        opts: ["della", "dei", "dell'", "dello"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Dello</strong> zenzero = some ginger. Zenzero starts with z, so masculine singular → dello."
+    },
+    {
+        q: "Complete: 'Ordiniamo ___ antipasti misti.' (antipasti = masculine plural, starts with vowel)",
+        opts: ["delle", "dell'", "dei", "degli"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Degli</strong> antipasti = some mixed appetisers. Masculine plural starting with vowel → degli."
+    },
+    {
+        q: "Complete: 'In frigorifero ci sono ___ fragole dolci per il dessert.' (fragole = strawberries, feminine plural)",
+        opts: ["dei", "degli", "dell'", "delle"],
+        ans: 3, sheet: "1.7",
+        exp: "<strong>Delle</strong> fragole = some strawberries. Fragole is feminine plural → delle."
+    },
+
+    // ── LESSON 1.7 — IL NUOVO ACCORDO VOCABULARY ────────────────────────
+    {
+        q: "What does 'un incontro' mean?",
+        opts: ["an agreement", "an office", "a restaurant", "a meeting"],
+        ans: 3, sheet: "1.7",
+        exp: "<em>Un incontro</em> = a meeting. 'La ringrazio per questo incontro' = Thank you for this meeting."
+    },
+    {
+        q: "What does 'ammirare' mean?",
+        opts: ["to admire", "to advise", "to manage", "to admit"],
+        ans: 0, sheet: "1.7",
+        exp: "<em>Ammirare</em> = to admire. 'Ammiro molto il successo della sua catena' = I greatly admire the success of your chain."
+    },
+    {
+        q: "What does 'una catena' mean in a business context?",
+        opts: ["a chain (jewellery)", "a barrier", "a supply", "a chain (of restaurants/shops)"],
+        ans: 3, sheet: "1.7",
+        exp: "<em>Una catena</em> = a chain. 'Una catena di ristoranti' = a chain of restaurants."
+    },
+    {
+        q: "What does 'la fornitura' mean?",
+        opts: ["the fortune", "the formula", "the formation", "the supply / provision"],
+        ans: 3, sheet: "1.7",
+        exp: "<em>La fornitura</em> = the supply. 'Una fornitura costante' = a constant/steady supply."
+    },
+    {
+        q: "What does 'prodotti biologici' mean?",
+        opts: ["Italian products", "local products", "frozen products", "organic products"],
+        ans: 3, sheet: "1.7",
+        exp: "<em>Prodotti biologici</em> = organic products. <em>Biologico</em> = biological/organic."
+    },
+    {
+        q: "What does 'i punti vendita' mean?",
+        opts: ["the sales team", "the sales figures", "the products for sale", "the sales outlets"],
+        ans: 3, sheet: "1.7",
+        exp: "<em>I punti vendita</em> = the sales outlets/points. <em>Punto</em> = point; <em>vendita</em> = sale."
+    },
+    {
+        q: "In 'Il Nuovo Accordo', what is Alessandro's role?",
+        opts: ["chef", "manager of a restaurant chain", "accountant", "head of Food Logistics"],
+        ans: 3, sheet: "1.7",
+        exp: "Alessandro is 'responsabile della Logistica Alimentare' = head of Food Logistics."
+    },
+    {
+        q: "What does 'Piacere mio' mean?",
+        opts: ["Nice to meet you", "My pleasure / The pleasure is mine", "I already know you", "What a pleasure"],
+        ans: 1, sheet: "1.7",
+        exp: "'Piacere mio' = My pleasure / The pleasure is mine. A polite response to 'Piacere di conoscerla'."
+    },
+
+    // ── LESSON 1.8 — DOV'È / DOVE SONO / C'È / CI SONO ─────────────────
+    {
+        q: "What does 'Dov'è?' mean?",
+        opts: ["Where are they?", "Is there?", "There is", "Where is? (singular)"],
+        ans: 3, sheet: "1.8",
+        exp: "'Dov'è?' = Where is? (singular). Use with a single place: 'Dov'è la stazione?'"
+    },
+    {
+        q: "What does 'Dove sono?' mean?",
+        opts: ["Where is it?", "Are there?", "There are", "Where are? (plural)"],
+        ans: 3, sheet: "1.8",
+        exp: "'Dove sono?' = Where are? (plural). Use when asking about more than one thing: 'Dove sono i Musei Vaticani?'"
+    },
+    {
+        q: "What does 'C'è' mean?",
+        opts: ["Where is?", "There are", "Where are?", "There is (singular)"],
+        ans: 3, sheet: "1.8",
+        exp: "'C'è' = There is (singular). 'C'è un ristorante qui vicino?' = Is there a restaurant nearby?"
+    },
+    {
+        q: "What does 'Ci sono' mean?",
+        opts: ["Where are?", "There is", "How many are there?", "There are (plural)"],
+        ans: 3, sheet: "1.8",
+        exp: "'Ci sono' = There are (plural). 'Ci sono due ristoranti' = There are two restaurants."
+    },
+    {
+        q: "Complete: 'Scusi, ___ un ristorante qui vicino?' (Is there a restaurant nearby?)",
+        opts: ["dove sono", "dov'è", "ci sono", "c'è"],
+        ans: 3, sheet: "1.8",
+        exp: "C'è = there is (singular). 'C'è un ristorante?' = Is there a restaurant? Use singular for one item."
+    },
+    {
+        q: "Complete: 'Per cortesia, sa ___ l'albergo Aurora?' (Do you know where the Aurora hotel is?)",
+        opts: ["ci sono", "c'è", "dove sono", "dov'è"],
+        ans: 3, sheet: "1.8",
+        exp: "Dov'è = where is (singular). 'Sa dov'è l'albergo Aurora?' = Do you know where the Aurora hotel is?"
+    },
+    {
+        q: "Complete: 'Senti, ___ una pizzeria qui vicino?' (Is there a pizzeria nearby?)",
+        opts: ["dov'è", "dove sono", "ci sono", "c'è"],
+        ans: 3, sheet: "1.8",
+        exp: "C'è = there is (singular). 'C'è una pizzeria qui vicino?' = Is there a pizzeria nearby?"
+    },
+    {
+        q: "Complete: 'Per piacere, Signora, ___ le due torre?' (Where are the two towers?)",
+        opts: ["c'è", "dov'è", "ci sono", "dove sono"],
+        ans: 3, sheet: "1.8",
+        exp: "Dove sono = where are (plural). 'Dove sono le due torre?' = Where are the two towers?"
+    },
+    {
+        q: "When do you use 'Dove sono' rather than 'Dov'è'?",
+        opts: ["For formal questions only", "For feminine nouns only", "For unknown locations", "When asking about plural items"],
+        ans: 3, sheet: "1.8",
+        exp: "Use <strong>Dove sono</strong> for plural items, <strong>Dov'è</strong> for singular. Mirrors C'è (singular) and Ci sono (plural)."
+    },
+    {
+        q: "What does 'qui vicino' mean?",
+        opts: ["far away", "over there", "on the left", "nearby / near here"],
+        ans: 3, sheet: "1.8",
+        exp: "'Qui vicino' = nearby / near here. 'C'è un ristorante qui vicino?' = Is there a restaurant nearby?"
+    },
+
+    // ── LESSON 1.8 — PREPOSIZIONI (ARTICLE + A) ─────────────────────────
+    {
+        q: "What does 'il' become when combined with 'a' (to the)?",
+        opts: ["alla", "all'", "allo", "al"],
+        ans: 3, sheet: "1.8",
+        exp: "il + a = <strong>al</strong>. E.g. 'al teatro' = to/at the theatre (il teatro → al teatro)."
+    },
+    {
+        q: "What does 'la' become when combined with 'a' (to the)?",
+        opts: ["al", "all'", "allo", "alla"],
+        ans: 3, sheet: "1.8",
+        exp: "la + a = <strong>alla</strong>. E.g. 'alla stazione' = to/at the station (la stazione → alla stazione)."
+    },
+    {
+        q: "What does 'l'' become when combined with 'a' (to the)?",
+        opts: ["al", "allo", "alla", "all'"],
+        ans: 3, sheet: "1.8",
+        exp: "l' + a = <strong>all'</strong>. E.g. 'all'albergo' = to/at the hotel (l'albergo → all'albergo)."
+    },
+    {
+        q: "What does 'lo' become when combined with 'a' (to the)?",
+        opts: ["al", "alla", "all'", "allo"],
+        ans: 3, sheet: "1.8",
+        exp: "lo + a = <strong>allo</strong>. E.g. 'allo stadio' = to/at the stadium (lo stadio → allo stadio)."
+    },
+    {
+        q: "What does 'i' become when combined with 'a' (to the)?",
+        opts: ["agli", "alle", "all'", "ai"],
+        ans: 3, sheet: "1.8",
+        exp: "i + a = <strong>ai</strong>. E.g. 'ai Musei Vaticani' = to/at the Vatican Museums."
+    },
+    {
+        q: "What does 'gli' become when combined with 'a' (to the)?",
+        opts: ["ai", "alle", "all'", "agli"],
+        ans: 3, sheet: "1.8",
+        exp: "gli + a = <strong>agli</strong>. E.g. 'agli amici' = to the friends."
+    },
+    {
+        q: "What does 'le' become when combined with 'a' (to the)?",
+        opts: ["ai", "agli", "all'", "alle"],
+        ans: 3, sheet: "1.8",
+        exp: "le + a = <strong>alle</strong>. E.g. 'alle due' = at two o'clock (le due → alle due)."
+    },
+    {
+        q: "What is 'al' a contraction of?",
+        opts: ["a + lo", "a + le", "a + gli", "a + il"],
+        ans: 3, sheet: "1.8",
+        exp: "<strong>Al</strong> = a + il. Used before masculine nouns starting with most consonants."
+    },
+    {
+        q: "What is 'alla' a contraction of?",
+        opts: ["a + il", "a + lo", "a + gli", "a + la"],
+        ans: 3, sheet: "1.8",
+        exp: "<strong>Alla</strong> = a + la. Used before feminine nouns starting with a consonant."
+    },
+    {
+        q: "What is 'allo' a contraction of?",
+        opts: ["a + la", "a + il", "a + gli", "a + lo"],
+        ans: 3, sheet: "1.8",
+        exp: "<strong>Allo</strong> = a + lo. Used before masculine nouns starting with z, s+consonant, etc."
+    },
+    {
+        q: "Complete: 'Fermano ___ teatro Festivale.' (they stop at the theatre — il teatro)",
+        opts: ["alla", "all'", "allo", "al"],
+        ans: 3, sheet: "1.8",
+        exp: "Il teatro → <strong>al</strong> teatro. Il + a = al."
+    },
+    {
+        q: "Complete: 'Il 12 ferma ___ stazione di Linlithgow.' (la stazione)",
+        opts: ["al", "all'", "allo", "alla"],
+        ans: 3, sheet: "1.8",
+        exp: "La stazione → <strong>alla</strong> stazione. La + a = alla."
+    },
+    {
+        q: "Complete: 'Il 38 e il 19 fermano ___ stadio di Murrayfield.' (lo stadio)",
+        opts: ["al", "alla", "all'", "allo"],
+        ans: 3, sheet: "1.8",
+        exp: "Lo stadio → <strong>allo</strong> stadio. Lo + a = allo."
+    },
+    {
+        q: "Complete: 'Voi dovete scendere l'autobus ___ terza fermata.' (la fermata)",
+        opts: ["al", "all'", "allo", "alla"],
+        ans: 3, sheet: "1.8",
+        exp: "La fermata → <strong>alla</strong> fermata. La + a = alla."
+    },
+    {
+        q: "How do you say 'at the cinema' in Italian? (il cinema)",
+        opts: ["allo cinema", "alla cinema", "all'cinema", "al cinema"],
+        ans: 3, sheet: "1.8",
+        exp: "Il cinema → <strong>al</strong> cinema. Il + a = al."
+    },
+    {
+        q: "How do you say 'to the hotel' in Italian? (l'albergo)",
+        opts: ["al albergo", "allo albergo", "alla albergo", "all'albergo"],
+        ans: 3, sheet: "1.8",
+        exp: "L'albergo → <strong>all'albergo</strong>. L' + a = all'. Used before any noun starting with a vowel."
+    },
+
+    // ── LESSON 1.8 — DIRECTIONS ──────────────────────────────────────────
+    {
+        q: "What does 'a sinistra' mean?",
+        opts: ["straight on", "on the right", "at the corner", "to the left"],
+        ans: 3, sheet: "1.8",
+        exp: "'A sinistra' = to the left. 'Lei gira a sinistra' = You turn left."
+    },
+    {
+        q: "What does 'a destra' mean?",
+        opts: ["straight on", "to the left", "at the corner", "to the right"],
+        ans: 3, sheet: "1.8",
+        exp: "'A destra' = to the right. 'Lei gira a destra' = You turn right."
+    },
+    {
+        q: "What does 'dritto' mean in the context of directions?",
+        opts: ["to the left", "to the right", "at the crossroads", "straight on"],
+        ans: 3, sheet: "1.8",
+        exp: "'Dritto' = straight on. 'Lei va dritto' = You go straight on."
+    },
+    {
+        q: "What does 'incrocio' mean?",
+        opts: ["traffic light", "roundabout", "corner", "crossroads"],
+        ans: 3, sheet: "1.8",
+        exp: "'Incrocio' = crossroads. 'All'incrocio, gira a destra' = At the crossroads, turn right."
+    },
+    {
+        q: "What does 'semaforo' mean?",
+        opts: ["crossroads", "roundabout", "street sign", "traffic light"],
+        ans: 3, sheet: "1.8",
+        exp: "'Semaforo' = traffic light. 'Al semaforo, gira a sinistra' = At the traffic lights, turn left."
+    },
+    {
+        q: "What does 'di fronte a' mean?",
+        opts: ["next to", "behind", "between", "opposite / facing"],
+        ans: 3, sheet: "1.8",
+        exp: "'Di fronte a' = opposite / facing. 'Di fronte alla stazione' = opposite the station."
+    },
+    {
+        q: "What does 'davanti a' mean?",
+        opts: ["next to", "behind", "between", "in front of"],
+        ans: 3, sheet: "1.8",
+        exp: "'Davanti a' = in front of. 'Davanti al cinema' = in front of the cinema."
+    },
+    {
+        q: "What does 'dietro il/la' mean?",
+        opts: ["in front of", "opposite", "next to", "behind"],
+        ans: 3, sheet: "1.8",
+        exp: "'Dietro il/la' = behind. 'Dietro il supermercato' = behind the supermarket."
+    },
+    {
+        q: "What does 'accanto a' mean?",
+        opts: ["in front of", "opposite", "behind", "next to"],
+        ans: 3, sheet: "1.8",
+        exp: "'Accanto a' = next to. 'Accanto alla banca' = next to the bank."
+    },
+    {
+        q: "What does 'fra il/la ... e il/la ...' mean?",
+        opts: ["in front of ... and ...", "behind ... and ...", "opposite ... and ...", "between ... and ..."],
+        ans: 3, sheet: "1.8",
+        exp: "'Fra il/la ... e il/la ...' = between ... and .... 'Fra il cinema e il teatro' = between the cinema and the theatre."
+    },
+    {
+        q: "What does 'all'angolo' mean?",
+        opts: ["at the traffic light", "at the crossroads", "at the roundabout", "on the corner"],
+        ans: 3, sheet: "1.8",
+        exp: "'All'angolo' = on the corner. 'È all'angolo' = It's on the corner."
+    },
+    {
+        q: "What does 'Lei va...' mean in directions?",
+        opts: ["Turn...", "Stop at...", "Take...", "You go... (formal)"],
+        ans: 3, sheet: "1.8",
+        exp: "'Lei va...' = You go... (formal). Used when giving directions: 'Lei va dritto' = You go straight on."
+    },
+    {
+        q: "What does 'Lei gira a destra/sinistra' mean?",
+        opts: ["You are on the right/left", "Stop on the right/left", "Keep right/left", "You turn right/left"],
+        ans: 3, sheet: "1.8",
+        exp: "'Lei gira a destra/sinistra' = You turn right/left. <em>Girare</em> = to turn."
+    },
+
+    // ── LESSON 1.8 — ASKING AND GIVING DIRECTIONS ───────────────────────
+    {
+        q: "What does 'Scusi, c'è un/una ... qui vicino?' mean?",
+        opts: ["Do you know if there is...?", "Where is the nearest...?", "How do I get to...?", "Excuse me, is there a ... nearby?"],
+        ans: 3, sheet: "1.8",
+        exp: "'Scusi, c'è un/una ... qui vicino?' = Excuse me, is there a ... nearby? A standard phrase for asking about a place."
+    },
+    {
+        q: "What does 'Scusi, sa dov'è il/la/l'...?' mean?",
+        opts: ["Excuse me, where do you want to go?", "Excuse me, how far is...?", "Excuse me, is there a...?", "Excuse me, do you know where ... is?"],
+        ans: 3, sheet: "1.8",
+        exp: "'Scusi, sa dov'è ...?' = Excuse me, do you know where ... is? Using the formal <em>sa</em> (from sapere)."
+    },
+    {
+        q: "What does 'Quale autobus dovete prendere?' mean?",
+        opts: ["Where is the bus stop?", "How many buses are there?", "Is there a bus nearby?", "Which bus do you need to take?"],
+        ans: 3, sheet: "1.8",
+        exp: "'Quale autobus dovete prendere?' = Which bus do you need to take? <em>Dovete</em> = you (pl) must; <em>prendere</em> = to take."
+    },
+    {
+        q: "What does 'vanno in centro' mean?",
+        opts: ["they stop in the centre", "they come from the centre", "they leave the centre", "they go to the (town) centre"],
+        ans: 3, sheet: "1.8",
+        exp: "'Vanno in centro' = they go to the town centre. <em>Vanno</em> = they go (from <em>andare</em>)."
+    },
+    {
+        q: "What does 'scendere l'autobus' mean?",
+        opts: ["to wait for the bus", "to take the bus", "to miss the bus", "to get off the bus"],
+        ans: 3, sheet: "1.8",
+        exp: "'Scendere l'autobus' = to get off the bus. <em>Scendere</em> = to go down / get off."
+    },
+    {
+        q: "What does 'Voi dovete scendere l'autobus alla terza fermata' mean?",
+        opts: ["Get on the bus at the third stop", "The bus stops three times", "Take the third bus", "You must get off the bus at the third stop"],
+        ans: 3, sheet: "1.8",
+        exp: "'Voi dovete scendere l'autobus alla terza fermata' = You must get off the bus at the third stop."
+    },
+    {
+        q: "What does 'per cortesia' mean?",
+        opts: ["Thank you very much", "Sorry to bother you", "On the contrary", "Please (a polite request)"],
+        ans: 3, sheet: "1.8",
+        exp: "'Per cortesia' = please (literally 'for courtesy'). Similar to 'per favore' and 'per piacere'."
+    },
+    {
+        q: "What does 'per piacere' mean?",
+        opts: ["with pleasure", "for fun", "thank you", "please"],
+        ans: 3, sheet: "1.8",
+        exp: "'Per piacere' = please. Along with 'per favore' and 'per cortesia', all are ways to say 'please'."
+    },
+    {
+        q: "What does 'in centro' mean?",
+        opts: ["in the suburbs", "in the north", "in the old town", "in the (town) centre"],
+        ans: 3, sheet: "1.8",
+        exp: "'In centro' = in the (town) centre. 'Il 38 e il 19 vanno in centro' = The 38 and 19 go to the town centre."
+    },
+
+    // ── LESSON 1.8 — TRANSPORT AND PLACES VOCABULARY ───────────────────
+    {
+        q: "What is 'la stazione'?",
+        opts: ["the airport", "the bus stop", "the car park", "the (train) station"],
+        ans: 3, sheet: "1.8",
+        exp: "'La stazione' = the (train) station. 'La stazione di Linlithgow' = Linlithgow station."
+    },
+    {
+        q: "What is 'la fermata'?",
+        opts: ["the crossing", "the timetable", "the platform", "the (bus/tram) stop"],
+        ans: 3, sheet: "1.8",
+        exp: "'La fermata' = the (bus/tram) stop. 'Alla terza fermata' = at the third stop."
+    },
+    {
+        q: "What is 'lo stadio'?",
+        opts: ["the sports centre", "the gym", "the park", "the stadium"],
+        ans: 3, sheet: "1.8",
+        exp: "'Lo stadio' = the stadium. Uses <em>lo</em> (not <em>il</em>) because it starts with st- (s + consonant)."
+    },
+    {
+        q: "What is 'il teatro'?",
+        opts: ["the museum", "the cinema", "the stadium", "the theatre"],
+        ans: 3, sheet: "1.8",
+        exp: "'Il teatro' = the theatre. 'Fermano al teatro Festivale' = They stop at the Festival theatre."
+    },
+    {
+        q: "What is 'l'albergo'?",
+        opts: ["the restaurant", "the office", "the shop", "the hotel"],
+        ans: 3, sheet: "1.8",
+        exp: "'L'albergo' = the hotel. 'Sa dov'è l'albergo Aurora?' = Do you know where Hotel Aurora is?"
+    },
+    {
+        q: "What is 'l'ufficio del turismo'?",
+        opts: ["the travel agency", "the post office", "the information centre", "the tourist office"],
+        ans: 3, sheet: "1.8",
+        exp: "'L'ufficio del turismo' = the tourist office. One of the four places in the worksheet map exercise."
+    },
+    {
+        q: "What does 'il supermercato' mean?",
+        opts: ["the market", "the corner shop", "the shopping centre", "the supermarket"],
+        ans: 3, sheet: "1.8",
+        exp: "'Il supermercato' = the supermarket."
+    },
+    {
+        q: "In the 1.8 map exercise, which four places do you need to find from the station?",
+        opts: ["hotel, cinema, bank, post office", "restaurant, museum, theatre, park", "station, pharmacy, supermarket, school", "tourist office, supermarket, hotel, cinema"],
+        ans: 3, sheet: "1.8",
+        exp: "The four places: l'ufficio del turismo, un supermercato, l'hotel Centrale, il cinema Lux."
+    },
+    {
+        q: "How do you say 'Excuse me, is there a pharmacy nearby?' in Italian?",
+        opts: ["Dov'è la farmacia, per favore?", "Scusa, sai la farmacia?", "Per favore, farmacia?", "Scusi, c'è una farmacia qui vicino?"],
+        ans: 3, sheet: "1.8",
+        exp: "'Scusi, c'è una farmacia qui vicino?' = Excuse me, is there a pharmacy nearby? Farmacia is feminine → una."
+    },
+    {
+        q: "How do you say 'Excuse me, do you know where the museum is?' in Italian?",
+        opts: ["Scusi, c'è un museo?", "Sa il museo, per favore?", "Dov'è un museo?", "Scusi, sa dov'è il museo?"],
+        ans: 3, sheet: "1.8",
+        exp: "'Scusi, sa dov'è il museo?' = Excuse me, do you know where the museum is? Using formal <em>sa</em> (sapere)."
+    },
+
+]; // end pool  (~463 questions total)
 
 // ============================================================
 //  QUIZ STATE
